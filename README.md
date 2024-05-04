@@ -97,24 +97,6 @@ The schema consists of the following tables:
 
 4. **Application Integration**: Integrate the database with your travel management application to leverage the functionalities offered by the schema.
 
-## Sample Queries
-
-Here are some sample SQL queries you can execute against the database:
-
-```sql
--- Retrieve all users from a specific country
-SELECT * FROM User WHERE Address LIKE '%USA%';
-
--- Retrieve all hotels with a rating above 4 stars
-SELECT * FROM Hotel WHERE Rating > 4;
-
--- Retrieve all itineraries for a specific user
-SELECT * FROM Itinerary WHERE User_Id = 'user123';
-
--- Calculate the total amount spent by a user
-SELECT SUM(Amount) AS TotalAmount FROM Bill WHERE User_Id = 'user123';
-
-
 
 ## Some Features
 
