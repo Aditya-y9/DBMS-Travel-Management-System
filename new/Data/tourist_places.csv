@@ -1,0 +1,51 @@
+Id,Country,State,City
+TP1001,India,Maharashtra,Mumbai
+TP1002,India,Delhi,New Delhi
+TP1003,India,Karnataka,Bangalore
+TP1004,India,Tamil Nadu,Chennai
+TP1005,India,West Bengal,Kolkata
+TP1006,India,Rajasthan,Jaipur
+TP1007,India,Telangana,Hyderabad
+TP1008,India,Uttar Pradesh,Lucknow
+TP1009,India,Goa,Panaji
+TP1010,India,Himachal Pradesh,Shimla
+TP1011,India,Gujarat,Ahmedabad
+TP1012,India,Punjab,Chandigarh
+TP1013,India,Kerala,Thiruvananthapuram
+TP1014,India,Assam,Dispur
+TP1015,India,Uttarakhand,Dehradun
+TP1016,India,Bihar,Patna
+TP1017,India,Haryana,Chandigarh
+TP1018,India,Odisha,Bhubaneswar
+TP1019,India,Chhattisgarh,Raipur
+TP1020,India,Jharkhand,Ranchi
+TP1021,France,Île-de-France,Paris
+TP1022,United States,California,Los Angeles
+TP1023,United Kingdom,England,London
+TP1024,Italy,Lazio,Rome
+TP1025,Japan,Tokyo,Tokyo
+TP1026,Spain,Catalonia,Barcelona
+TP1027,Brazil,São Paulo,São Paulo
+TP1028,Russia,Moscow,Moscow
+TP1029,Turkey,Istanbul,Istanbul
+TP1030,Malaysia,Kuala Lumpur,Kuala Lumpur
+TP1031,Australia,New South Wales,Sydney
+TP1032,Canada,Ontario,Toronto
+TP1033,China,Beijing,Beijing
+TP1034,Singapore,Central Singapore,Singapore
+TP1035,Germany,Berlin,Berlin
+TP1036,United Arab Emirates,Dubai,Dubai
+TP1037,South Korea,Seoul,Seoul
+TP1038,Thailand,Bangkok,Bangkok
+TP1039,Netherlands,North Holland,Amsterdam
+TP1040,Switzerland,Zurich,Zurich
+TP1041,Austria,Vienna,Vienna
+TP1042,Argentina,Buenos Aires,Buenos Aires
+TP1043,Denmark,Capital Region of Denmark,Copenhagen
+TP1044,Sweden,Stockholm,Stockholm
+TP1045,New Zealand,Auckland,Auckland
+TP1046,Portugal,Lisbon,Lisbon
+TP1047,Norway,Oslo,Oslo
+TP1048,Finland,Uusimaa,Helsinki
+TP1049,Belgium,Brussels-Capital Region,Brussels
+TP1050,Ireland,Leinster,Dublin

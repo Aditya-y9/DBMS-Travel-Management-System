@@ -1,0 +1,41 @@
+User_Id,Budget,Country,Climate,Rating,No_Of_Travellers,FoodPreference,Transport_Preference,No_Of_Days
+USR1011,7500,Italy,Moderate,4.5,2,Non-Vegetarian,Flight,7
+USR1012,8500,South Korea,Mild,4.4,1,Vegetarian,Flight,8
+USR1013,9000,Germany,Moderate,4.7,2,Seafood,Flight,9
+USR1014,7000,Brazil,Tropical,4.6,2,Non-Vegetarian,Flight,6
+USR1015,8000,Russia,Cold,4.3,1,Vegan,Flight,7
+USR1016,9500,New Zealand,Mild,4.8,2,Non-Vegetarian,Flight,10
+USR1017,6000,Sweden,Cold,4.2,4,Seafood,Train,5
+USR1018,7000,Norway,Cold,4.6,2,Vegetarian,Train,6
+USR1019,8500,Denmark,Cold,4.4,1,Non-Vegetarian,Flight,8
+USR1020,8000,Argentina,Mild,4.5,2,Vegetarian,Flight,7
+USR1021,7500,Portugal,Moderate,4.3,1,Vegan,Flight,6
+USR1022,9000,Finland,Cold,4.7,2,Non-Vegetarian,Flight,9
+USR1023,8500,United Kingdom,Mild,4.6,1,Non-Vegetarian,Flight,8
+USR1024,7000,Switzerland,Moderate,4.5,1,Vegetarian,Train,6
+USR1025,9500,Ireland,Mild,4.8,2,Seafood,Flight,10
+USR1026,8000,Austria,Moderate,4.4,2,Vegan,Flight,7
+USR1027,7500,Singapore,Tropical,4.3,1,Non-Vegetarian,Flight,6
+USR1028,7000,Malaysia,Tropical,4.6,2,Non-Vegetarian,Flight,6
+USR1029,9000,China,Mild,4.7,2,Seafood,Flight,8
+USR1030,8000,Turkey,Moderate,4.5,1,Vegetarian,Flight,7
+USR1031,8500,Maldives,Tropical,4.6,2,Vegan,Flight,8
+USR1032,7500,Greece,Moderate,4.4,1,Vegetarian,Flight,6
+USR1033,9000,Sri Lanka,Tropical,4.7,2,Non-Vegetarian,Flight,8
+USR1034,8500,Philippines,Tropical,4.5,1,Vegan,Flight,7
+USR1035,7000,Egypt,Hot,4.3,1,Non-Vegetarian,Flight,6
+USR1036,9500,Peru,Mild,4.6,2,Seafood,Flight,8
+USR1037,8000,Chile,Mild,4.4,2,Vegetarian,Flight,7
+USR1038,7500,Costa Rica,Tropical,4.3,1,Non-Vegetarian,Flight,6
+USR1039,9000,Canada,Cold,4.7,2,Vegan,Flight,8
+USR1040,8500,Iceland,Cold,4.6,1,Non-Vegetarian,Flight,8
+USR1041,7000,Scotland,Mild,4.5,1,Seafood,Train,6
+USR1042,9500,Australia,Mild,4.8,2,Vegan,Flight,10
+USR1043,8000,Germany,Moderate,4.4,2,Non-Vegetarian,Flight,7
+USR1044,7500,Spain,Moderate,4.3,1,Vegetarian,Flight,6
+USR1045,7000,France,Mild,4.6,2,Vegan,Flight,6
+USR1046,9000,Italy,Moderate,4.7,2,Seafood,Flight,8
+USR1047,8500,United States,Mild,4.5,1,Non-Vegetarian,Flight,8
+USR1048,7000,Japan,Mild,4.3,1,Vegan,Flight,6
+USR1049,9500,Brazil,Tropical,4.6,2,Non-Vegetarian,Flight,8
+USR1050,8000,India,Tropical,4.4,2,Vegetarian,Train,7

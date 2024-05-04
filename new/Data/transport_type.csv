@@ -1,0 +1,51 @@
+Transport_id,NameOfProvider,Fare,TypeOfVehicle
+T1001,Air India,50000.00,Flight
+T1002,IndiGo,45000.00,Flight
+T1003,GoAir,40000.00,Flight
+T1004,SpiceJet,42000.00,Flight
+T1005,Jet Airways,55000.00,Flight
+T1006,Vistara,48000.00,Flight
+T1007,British Airways,60000.00,Flight
+T1008,Lufthansa,70000.00,Flight
+T1009,Emirates,75000.00,Flight
+T1010,Etihad Airways,68000.00,Flight
+T1011,Qatar Airways,72000.00,Flight
+T1012,First Flight,28000.00,Flight
+T1013,Ola,2500.00,Car
+T1014,Uber,2000.00,Car
+T1015,Tata Motors,3000.00,Car
+T1016,Maruti Suzuki,2800.00,Car
+T1017,ZoomCar,3000.00,Car
+T1018,Ford,3200.00,Car
+T1019,Honda,2700.00,Car
+T1020,Kia Motors,3500.00,Car
+T1021,Volvo,1200.00,Bus
+T1022,KSRTC,1000.00,Bus
+T1023,BMTC,800.00,Bus
+T1024,Scania,1400.00,Bus
+T1025,Toyota,2900.00,Car
+T1026,Nissan,3100.00,Car
+T1027,Hyundai,2600.00,Car
+T1028,Mercedes-Benz,4000.00,Car
+T1029,Metro,500.00,Train
+T1030,Indian Railways,1000.00,Train
+T1031,Air India,50000.00,Flight
+T1032,IndiGo,45000.00,Flight
+T1033,GoAir,40000.00,Flight
+T1034,SpiceJet,42000.00,Flight
+T1035,Jet Airways,55000.00,Flight
+T1036,Vistara,48000.00,Flight
+T1037,British Airways,60000.00,Flight
+T1038,Lufthansa,70000.00,Flight
+T1039,Emirates,75000.00,Flight
+T1040,Etihad Airways,68000.00,Flight
+T1041,Qatar Airways,72000.00,Flight
+T1042,First Flight,28000.00,Flight
+T1043,Ola,2500.00,Car
+T1044,Uber,2000.00,Car
+T1045,Tata Motors,3000.00,Car
+T1046,Maruti Suzuki,2800.00,Car
+T1047,ZoomCar,3000.00,Car
+T1048,Ford,3200.00,Car
+T1049,Honda,2700.00,Car
+T1050,Kia Motors,3500.00,Car

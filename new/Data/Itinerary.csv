@@ -1,0 +1,51 @@
+Itinerary_id,Title,Budget,Country,State,City,Rating,No_Of_Travellers,FoodPreference,Transport_id,Hotel_id,Date_Of_Travel
+IT1001,Exploring Mumbai,5000,India,Maharashtra,Mumbai,4.2,2,Vegetarian,FL1001,HT1001,15-05-24
+IT1002,Sightseeing in Paris,8000,France,Île-de-France,Paris,4.5,1,Non-Vegetarian,FL1021,HT1041,20-06-24
+IT1003,Weekend Trip to Goa,6000,India,Goa,Panaji,4.6,4,Seafood,FL1002,HT1009,10-07-24
+IT1004,Business Trip to New York,10000,United States,New York,New York City,4.8,1,Non-Vegetarian,FL1023,HT1051,05-08-24
+IT1005,Adventure in Tokyo,7000,Japan,Tokyo,Tokyo,4.7,2,Vegetarian,FL1025,HT1024,15-09-24
+IT1006,Exploring Barcelona,7500,Spain,Catalonia,Barcelona,4.4,2,Non-Vegetarian,FL1026,HT1063,20-10-24
+IT1007,Holiday in Sydney,8500,Australia,New South Wales,Sydney,4.6,2,Seafood,FL1031,HT1055,10-11-24
+IT1008,Exploring Bangkok,7000,Thailand,Bangkok,Bangkok,4.3,1,Vegetarian,FL1038,HT1054,05-12-24
+IT1009,Weekend in Amsterdam,8000,Netherlands,North Holland,Amsterdam,4.5,1,Non-Vegetarian,FL1039,HT1069,20-01-25
+IT1010,Relaxing in Zurich,9000,Switzerland,Zurich,Zurich,4.7,2,Vegetarian,FL1040,HT1070,15-02-25
+IT1011,Cultural Tour in Delhi,5500,India,Delhi,New Delhi,4.4,3,Vegetarian,FL1003,HT1002,10-03-25
+IT1012,Skiing in Oslo,10000,Norway,Oslo,Oslo,4.8,2,Non-Vegetarian,FL1047,HT1047,05-04-25
+IT1013,Hiking in Helsinki,7500,Finland,Uusimaa,Helsinki,4.6,1,Vegan,FL1048,HT1048,20-05-25
+IT1014,Exploring Dubai,9000,United Arab Emirates,Dubai,Dubai,4.5,2,Non-Vegetarian,FL1036,HT1036,10-06-25
+IT1015,Sightseeing in Rome,8000,Italy,Lazio,Rome,4.7,1,Non-Vegetarian,FL1024,HT1056,05-07-25
+IT1016,Weekend Trip to Bengaluru,6000,India,Karnataka,Bangalore,4.3,4,Seafood,FL1004,HT1003,15-08-25
+IT1017,Exploring Istanbul,8500,Turkey,Istanbul,Istanbul,4.4,2,Vegetarian,FL1029,HT1029,20-09-25
+IT1018,Adventure in Seoul,7500,South Korea,Seoul,Seoul,4.6,1,Non-Vegetarian,FL1037,HT1037,10-10-25
+IT1019,Holiday in Barcelona,9000,Spain,Catalonia,Barcelona,4.7,2,Vegetarian,FL1026,HT1063,05-11-25
+IT1020,Cultural Tour in Paris,6000,France,Île-de-France,Paris,4.5,3,Vegan,FL1021,HT1041,20-12-25
+IT1021,Exploring Moscow,8500,Russia,Moscow,Moscow,4.6,2,Non-Vegetarian,FL1028,HT1028,15-01-26
+IT1022,Weekend Trip to Goa,6500,India,Goa,Panaji,4.4,4,Vegetarian,FL1002,HT1009,10-02-26
+IT1023,Skiing in Stockholm,10000,Sweden,Stockholm,Stockholm,4.8,2,Non-Vegetarian,FL1044,HT1044,05-03-26
+IT1024,Relaxing in Dubai,9500,United Arab Emirates,Dubai,Dubai,4.7,2,Vegan,FL1036,HT1036,20-04-26
+IT1025,Hiking in Auckland,8000,New Zealand,Auckland,Auckland,4.5,1,Vegetarian,FL1045,HT1045,10-05-26
+IT1026,Cultural Tour in Bangkok,6500,Thailand,Bangkok,Bangkok,4.3,3,Non-Vegetarian,FL1038,HT1054,05-06-26
+IT1027,Weekend in Amsterdam,8500,Netherlands,North Holland,Amsterdam,4.6,1,Vegetarian,FL1039,HT1069,20-07-26
+IT1028,Adventure in Barcelona,9000,Spain,Catalonia,Barcelona,4.7,2,Seafood,FL1026,HT1063,15-08-26
+IT1029,Holiday in Tokyo,7500,Japan,Tokyo,Tokyo,4.4,1,Non-Vegetarian,FL1025,HT1024,10-09-26
+IT1030,Sightseeing in London,8000,United Kingdom,England,London,4.6,1,Vegetarian,FL1023,HT1052,05-10-26
+IT1031,Exploring Paris,8500,France,Île-de-France,Paris,4.7,2,Vegan,FL1021,HT1041,20-11-26
+IT1032,Weekend Trip to Moscow,6500,Russia,Moscow,Moscow,4.3,4,Non-Vegetarian,FL1028,HT1028,10-12-26
+IT1033,Cultural Tour in Rome,9000,Italy,Lazio,Rome,4.5,3,Non-Vegetarian,FL1024,HT1056,05-01-27
+IT1034,Adventure in Istanbul,7500,Turkey,Istanbul,Istanbul,4.6,1,Vegetarian,FL1029,HT1029,20-02-27
+IT1035,Holiday in Seoul,8000,South Korea,Seoul,Seoul,4.4,2,Vegan,FL1037,HT1037,15-03-27
+IT1036,Skiing in Stockholm,10000,Sweden,Stockholm,Stockholm,4.8,2,Non-Vegetarian,FL1044,HT1044,10-04-27
+IT1037,Relaxing in Dubai,9500,United Arab Emirates,Dubai,Dubai,4.7,2,Vegan,FL1036,HT1036,20-05-27
+IT1038,Hiking in Auckland,8000,New Zealand,Auckland,Auckland,4.5,1,Vegetarian,FL1045,HT1045,10-06-27
+IT1039,Cultural Tour in Bangkok,6500,Thailand,Bangkok,Bangkok,4.3,3,Non-Vegetarian,FL1038,HT1054,05-07-27
+IT1040,Weekend in Amsterdam,8500,Netherlands,North Holland,Amsterdam,4.6,1,Vegetarian,FL1039,HT1069,20-08-27
+IT1041,Adventure in Paris,7500,France,Île-de-France,Paris,4.4,2,Non-Vegetarian,FL1021,HT1041,15-09-27
+IT1042,Exploring Los Angeles,8000,United States,California,Los Angeles,4.6,1,Vegan,FL1022,HT1052,10-10-27
+IT1043,Holiday in London,8500,United Kingdom,England,London,4.7,2,Vegetarian,FL1023,HT1052,05-11-27
+IT1044,Weekend Trip to Rome,6500,Italy,Lazio,Rome,4.3,3,Non-Vegetarian,FL1024,HT1056,20-12-27
+IT1045,Cultural Tour in Tokyo,9000,Japan,Tokyo,Tokyo,4.5,2,Vegan,FL1025,HT1024,15-01-28
+IT1046,Sightseeing in Barcelona,7500,Spain,Catalonia,Barcelona,4.6,1,Vegetarian,FL1026,HT1063,10-02-28
+IT1047,Adventure in São Paulo,8000,Brazil,São Paulo,São Paulo,4.7,2,Non-Vegetarian,FL1027,HT1027,05-03-28
+IT1048,Weekend in Moscow,6500,Russia,Moscow,Moscow,4.3,3,Vegetarian,FL1028,HT1028,20-04-28
+IT1049,Holiday in Dubai,9500,United Arab Emirates,Dubai,Dubai,4.6,2,Non-Vegetarian,FL1036,HT1036,10-05-28
+IT1050,Exploring Amsterdam,8500,Netherlands,North Holland,Amsterdam,4.5,1,Vegetarian,FL1039,HT1069,05-06-28

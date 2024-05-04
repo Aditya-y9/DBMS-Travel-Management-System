@@ -1,0 +1,514 @@
+MariaDB [dbms_project]> source D:\Documents\SEM4\DBMS\Project\DML.sql
++---------------+
+| AverageBudget |
++---------------+
+|     7930.0000 |
++---------------+
+1 row in set (0.001 sec)
+
++-------------+---------------+
+| Blood_group | NumberOfUsers |
++-------------+---------------+
+| A+          |            14 |
+| A-          |            12 |
+| AB+         |            12 |
+| AB-         |            12 |
+| B+          |            12 |
+| B-          |            12 |
+| O+          |            12 |
+| O-          |            14 |
++-------------+---------------+
+8 rows in set (0.000 sec)
+
++------------------+
+| MaxWalletBalance |
++------------------+
+|             8000 |
++------------------+
+1 row in set (0.000 sec)
+
++---------+---------+-------------+
+| MinCost | MaxCost | AverageCost |
++---------+---------+-------------+
+|    4600 |    6200 |   5372.0000 |
++---------+---------+-------------+
+1 row in set (0.000 sec)
+
++--------------+---------------------------+--------+----------------------+-----------+---------------+--------+------------------+----------------+--------------+----------+----------------+
+| Itinerary_id | Title                     | Budget | Country              | State     | City          | Rating | No_Of_Travellers | FoodPreference | Transport_id | Hotel_id | Date_Of_Travel |
++--------------+---------------------------+--------+----------------------+-----------+---------------+--------+------------------+----------------+--------------+----------+----------------+
+| IT1004       | Business Trip to New York |  10000 | United States        | New York  | New York City |    4.8 | 1                | Non-Vegetarian | FL1023       | HT1051   | 05-08-24       |
+| IT1012       | Skiing in Oslo            |  10000 | Norway               | Oslo      | Oslo          |    4.8 | 2                | Non-Vegetarian | FL1047       | HT1047   | 05-04-25       |
+| IT1023       | Skiing in Stockholm       |  10000 | Sweden               | Stockholm | Stockholm     |    4.8 | 2                | Non-Vegetarian | FL1044       | HT1044   | 05-03-26       |
+| IT1036       | Skiing in Stockholm       |  10000 | Sweden               | Stockholm | Stockholm     |    4.8 | 2                | Non-Vegetarian | FL1044       | HT1044   | 10-04-27       |
+| IT1024       | Relaxing in Dubai         |   9500 | United Arab Emirates | Dubai     | Dubai         |    4.7 | 2                | Vegan          | FL1036       | HT1036   | 20-04-26       |
++--------------+---------------------------+--------+----------------------+-----------+---------------+--------+------------------+----------------+--------------+----------+----------------+
+5 rows in set (0.000 sec)
+
++----------------------+---------------------+
+| Country              | NumberOfItineraries |
++----------------------+---------------------+
+| Australia            |                   1 |
+| Brazil               |                   1 |
+| Finland              |                   1 |
+| France               |                   4 |
+| India                |                   5 |
+| Italy                |                   3 |
+| Japan                |                   3 |
+| Netherlands          |                   4 |
+| New Zealand          |                   2 |
+| Norway               |                   1 |
+| Russia               |                   3 |
+| South Korea          |                   2 |
+| Spain                |                   4 |
+| Sweden               |                   2 |
+| Switzerland          |                   1 |
+| Thailand             |                   3 |
+| Turkey               |                   2 |
+| United Arab Emirates |                   4 |
+| United Kingdom       |                   2 |
+| United States        |                   2 |
++----------------------+---------------------+
+20 rows in set (0.000 sec)
+
++---------+-------------+
+| User_Id | TotalAmount |
++---------+-------------+
+| USR1001 |        5000 |
+| USR1002 |        7000 |
+| USR1003 |        6000 |
+| USR1004 |        8000 |
+| USR1005 |        6500 |
+| USR1006 |        7500 |
+| USR1007 |        8500 |
+| USR1008 |        7000 |
+| USR1009 |        9000 |
+| USR1010 |        8000 |
+| USR1011 |        6000 |
+| USR1012 |       10000 |
+| USR1013 |        7500 |
+| USR1014 |        9500 |
+| USR1015 |        8000 |
+| USR1016 |        6500 |
+| USR1017 |        8500 |
+| USR1018 |        7000 |
+| USR1019 |        9000 |
+| USR1020 |        7500 |
+| USR1021 |        7000 |
+| USR1022 |        9500 |
+| USR1023 |        8500 |
+| USR1024 |        8000 |
+| USR1025 |        6000 |
+| USR1026 |        9000 |
+| USR1027 |        7500 |
+| USR1028 |        8500 |
+| USR1029 |        7000 |
+| USR1030 |        9500 |
+| USR1031 |        8000 |
+| USR1032 |        7000 |
+| USR1033 |        8500 |
+| USR1034 |        7500 |
+| USR1035 |        9000 |
+| USR1036 |        8000 |
+| USR1037 |        6500 |
+| USR1038 |        7000 |
+| USR1039 |        9500 |
+| USR1040 |        8500 |
+| USR1041 |        7500 |
+| USR1042 |        8000 |
+| USR1043 |        7000 |
+| USR1044 |        9500 |
+| USR1045 |        8500 |
+| USR1046 |        8000 |
+| USR1047 |        7500 |
+| USR1048 |        9000 |
+| USR1049 |        7000 |
+| USR1050 |        9500 |
++---------+-------------+
+50 rows in set (0.000 sec)
+
++----------+---------------+
+| Climate  | NumberOfUsers |
++----------+---------------+
+| Cold     |            14 |
+| Hot      |             2 |
+| Mild     |            26 |
+| Moderate |            20 |
+| Tropical |            18 |
++----------+---------------+
+5 rows in set (0.000 sec)
+
++----------------------+---------------+
+| Transport_Preference | NumberOfUsers |
++----------------------+---------------+
+| Flight               |            70 |
+| Train                |            10 |
++----------------------+---------------+
+2 rows in set (0.000 sec)
+
++-------------------+
+| AverageRating     |
++-------------------+
+| 8.543999999999997 |
++-------------------+
+1 row in set (0.000 sec)
+
++--------------------+----------------+
+| City               | NumberOfPlaces |
++--------------------+----------------+
+| Ahmedabad          |              2 |
+| Amsterdam          |              2 |
+| Auckland           |              2 |
+| Bangalore          |              2 |
+| Bangkok            |              2 |
+| Barcelona          |              2 |
+| Beijing            |              2 |
+| Berlin             |              2 |
+| Bhubaneswar        |              2 |
+| Brussels           |              2 |
+| Buenos Aires       |              2 |
+| Chandigarh         |              4 |
+| Chennai            |              2 |
+| Copenhagen         |              2 |
+| Dehradun           |              2 |
+| Dispur             |              2 |
+| Dubai              |              2 |
+| Dublin             |              2 |
+| Helsinki           |              2 |
+| Hyderabad          |              2 |
+| Istanbul           |              2 |
+| Jaipur             |              2 |
+| Kolkata            |              2 |
+| Kuala Lumpur       |              2 |
+| Lisbon             |              2 |
+| London             |              2 |
+| Los Angeles        |              2 |
+| Lucknow            |              2 |
+| Moscow             |              2 |
+| Mumbai             |              2 |
+| New Delhi          |              2 |
+| Oslo               |              2 |
+| Panaji             |              2 |
+| Paris              |              2 |
+| Patna              |              2 |
+| Raipur             |              2 |
+| Ranchi             |              2 |
+| Rome               |              2 |
+| São Paulo          |              2 |
+| Seoul              |              2 |
+| Shimla             |              2 |
+| Singapore          |              2 |
+| Stockholm          |              2 |
+| Sydney             |              2 |
+| Thiruvananthapuram |              2 |
+| Tokyo              |              2 |
+| Toronto            |              2 |
+| Vienna             |              2 |
+| Zurich             |              2 |
++--------------------+----------------+
+49 rows in set (0.000 sec)
+
++--------------+
+| Name         |
++--------------+
+| Sunita Reddy |
++--------------+
+1 row in set (0.001 sec)
+
+ERROR 1146 (42S02) at line 38 in file: 'D:\Documents\SEM4\DBMS\Project\DML.sql': Table 'dbms_project.transporttype' doesn't exist
+ERROR 1054 (42S22) at line 41 in file: 'D:\Documents\SEM4\DBMS\Project\DML.sql': Unknown column 'Itinerary.User_Id' in 'on clause'
+ERROR 1054 (42S22) at line 44 in file: 'D:\Documents\SEM4\DBMS\Project\DML.sql': Unknown column 'Itinerary.User_Id' in 'on clause'
+Empty set (0.000 sec)
+
++----------------------+--------------------+
+| Country              | AverageRating      |
++----------------------+--------------------+
+| Australia            |                4.6 |
+| Brazil               |                4.7 |
+| Finland              |                4.6 |
+| France               |              4.525 |
+| India                |               4.38 |
+| Italy                |                4.5 |
+| Japan                |  4.533333333333334 |
+| Netherlands          |               4.55 |
+| New Zealand          |                4.5 |
+| Norway               |                4.8 |
+| Russia               | 4.3999999999999995 |
+| South Korea          |                4.5 |
+| Spain                |                4.6 |
+| Sweden               |                4.8 |
+| Switzerland          |                4.7 |
+| Thailand             |                4.3 |
+| Turkey               |                4.5 |
+| United Arab Emirates |              4.625 |
+| United Kingdom       |               4.65 |
+| United States        |  4.699999999999999 |
++----------------------+--------------------+
+20 rows in set (0.000 sec)
+
++----------------+---------------+
+| FoodPreference | NumberOfUsers |
++----------------+---------------+
+| Non-Vegetarian |            30 |
++----------------+---------------+
+1 row in set (0.000 sec)
+
++----------+---------------+
+| Climate  | NumberOfUsers |
++----------+---------------+
+| Cold     |            14 |
+| Hot      |             2 |
+| Mild     |            26 |
+| Moderate |            20 |
+| Tropical |            18 |
++----------+---------------+
+5 rows in set (0.000 sec)
+
+Query OK, 0 rows affected (0.000 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+Query OK, 0 rows affected (0.000 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+Query OK, 0 rows affected (0.000 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+ERROR 1054 (42S22) at line 64 in file: 'D:\Documents\SEM4\DBMS\Project\DML.sql': Unknown column 'User_Id' in 'where clause'
+Query OK, 0 rows affected (0.000 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+Query OK, 0 rows affected (0.000 sec)
+
+ERROR 1054 (42S22) at line 70 in file: 'D:\Documents\SEM4\DBMS\Project\DML.sql': Unknown column 'Age' in 'field list'
+Query OK, 0 rows affected (0.021 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+Query OK, 0 rows affected (0.009 sec)
+
+Query OK, 0 rows affected (0.008 sec)
+
+Query OK, 0 rows affected (0.008 sec)
+
+Query OK, 0 rows affected (0.009 sec)
+
+ERROR 1133 (28000) at line 82 in file: 'D:\Documents\SEM4\DBMS\Project\DML.sql': Can't find any matching row in the user table
+ERROR 1147 (42000) at line 84 in file: 'D:\Documents\SEM4\DBMS\Project\DML.sql': There is no such grant defined for user 'root' on host 'localhost' on table 'users'
+Query OK, 0 rows affected (0.000 sec)
+
+Query OK, 0 rows affected (0.000 sec)
+
+MariaDB [dbms_project]> source D:\Documents\SEM4\DBMS\Project\DML.sql
++---------------+
+| AverageBudget |
++---------------+
+|          NULL |
++---------------+
+1 row in set (0.001 sec)
+
++-------------+---------------+
+| Blood_group | NumberOfUsers |
++-------------+---------------+
+| A+          |            14 |
+| A-          |            12 |
+| AB+         |            12 |
+| AB-         |            12 |
+| B+          |            12 |
+| B-          |            12 |
+| O+          |            12 |
+| O-          |            14 |
++-------------+---------------+
+8 rows in set (0.001 sec)
+
++------------------+
+| MaxWalletBalance |
++------------------+
+|             8000 |
++------------------+
+1 row in set (0.000 sec)
+
++---------+---------+-------------+
+| MinCost | MaxCost | AverageCost |
++---------+---------+-------------+
+|    4600 |    6200 |   5372.0000 |
++---------+---------+-------------+
+1 row in set (0.000 sec)
+
+Empty set (0.000 sec)
+
+Empty set (0.000 sec)
+
++---------+-------------+
+| User_Id | TotalAmount |
++---------+-------------+
+| USR1001 |        5000 |
+| USR1002 |        7000 |
+| USR1003 |        6000 |
+| USR1004 |        8000 |
+| USR1005 |        6500 |
+| USR1006 |        7500 |
+| USR1007 |        8500 |
+| USR1008 |        7000 |
+| USR1009 |        9000 |
+| USR1010 |        8000 |
+| USR1011 |        6000 |
+| USR1012 |       10000 |
+| USR1013 |        7500 |
+| USR1014 |        9500 |
+| USR1015 |        8000 |
+| USR1016 |        6500 |
+| USR1017 |        8500 |
+| USR1018 |        7000 |
+| USR1019 |        9000 |
+| USR1020 |        7500 |
+| USR1021 |        7000 |
+| USR1022 |        9500 |
+| USR1023 |        8500 |
+| USR1024 |        8000 |
+| USR1025 |        6000 |
+| USR1026 |        9000 |
+| USR1027 |        7500 |
+| USR1028 |        8500 |
+| USR1029 |        7000 |
+| USR1030 |        9500 |
+| USR1031 |        8000 |
+| USR1032 |        7000 |
+| USR1033 |        8500 |
+| USR1034 |        7500 |
+| USR1035 |        9000 |
+| USR1036 |        8000 |
+| USR1037 |        6500 |
+| USR1038 |        7000 |
+| USR1039 |        9500 |
+| USR1040 |        8500 |
+| USR1041 |        7500 |
+| USR1042 |        8000 |
+| USR1043 |        7000 |
+| USR1044 |        9500 |
+| USR1045 |        8500 |
+| USR1046 |        8000 |
+| USR1047 |        7500 |
+| USR1048 |        9000 |
+| USR1049 |        7000 |
+| USR1050 |        9500 |
++---------+-------------+
+50 rows in set (0.000 sec)
+
+ERROR 1146 (42S02) at line 23 in file: 'D:\Documents\SEM4\DBMS\Project\DML.sql': Table 'dbms_project.user_preference' doesn't exist
+ERROR 1146 (42S02) at line 26 in file: 'D:\Documents\SEM4\DBMS\Project\DML.sql': Table 'dbms_project.user_preference' doesn't exist
++-------------------+
+| AverageRating     |
++-------------------+
+| 8.543999999999997 |
++-------------------+
+1 row in set (0.001 sec)
+
++--------------------+----------------+
+| City               | NumberOfPlaces |
++--------------------+----------------+
+| Ahmedabad          |              2 |
+| Amsterdam          |              2 |
+| Auckland           |              2 |
+| Bangalore          |              2 |
+| Bangkok            |              2 |
+| Barcelona          |              2 |
+| Beijing            |              2 |
+| Berlin             |              2 |
+| Bhubaneswar        |              2 |
+| Brussels           |              2 |
+| Buenos Aires       |              2 |
+| Chandigarh         |              4 |
+| Chennai            |              2 |
+| Copenhagen         |              2 |
+| Dehradun           |              2 |
+| Dispur             |              2 |
+| Dubai              |              2 |
+| Dublin             |              2 |
+| Helsinki           |              2 |
+| Hyderabad          |              2 |
+| Istanbul           |              2 |
+| Jaipur             |              2 |
+| Kolkata            |              2 |
+| Kuala Lumpur       |              2 |
+| Lisbon             |              2 |
+| London             |              2 |
+| Los Angeles        |              2 |
+| Lucknow            |              2 |
+| Moscow             |              2 |
+| Mumbai             |              2 |
+| New Delhi          |              2 |
+| Oslo               |              2 |
+| Panaji             |              2 |
+| Paris              |              2 |
+| Patna              |              2 |
+| Raipur             |              2 |
+| Ranchi             |              2 |
+| Rome               |              2 |
+| São Paulo          |              2 |
+| Seoul              |              2 |
+| Shimla             |              2 |
+| Singapore          |              2 |
+| Stockholm          |              2 |
+| Sydney             |              2 |
+| Thiruvananthapuram |              2 |
+| Tokyo              |              2 |
+| Toronto            |              2 |
+| Vienna             |              2 |
+| Zurich             |              2 |
++--------------------+----------------+
+49 rows in set (0.000 sec)
+
+
+MariaDB [dbms_project]> source D:\Documents\SEM4\DBMS\Project\Nested.sql
++--------------+
+| Name         |
++--------------+
+| Sunita Reddy |
+| Sunita Reddy |
++--------------+
+2 rows in set (0.001 sec)
+
+ERROR 1054 (42S22) at line 5 in file: 'D:\Documents\SEM4\DBMS\Project\Nested.sql': Unknown column 'Itinerary.User_Id' in 'on clause'
++---------------+
+| AverageBudget |
++---------------+
+|     7930.0000 |
++---------------+
+1 row in set (0.000 sec)
+
+Empty set (0.001 sec)
+
++----------------------+---------------------+
+| Country              | NumberOfItineraries |
++----------------------+---------------------+
+| Australia            |                   1 |
+| Brazil               |                   1 |
+| Finland              |                   1 |
+| France               |                   4 |
+| India                |                   5 |
+| Italy                |                   3 |
+| Japan                |                   3 |
+| Netherlands          |                   4 |
+| New Zealand          |                   2 |
+| Norway               |                   1 |
+| Russia               |                   3 |
+| South Korea          |                   2 |
+| Spain                |                   4 |
+| Sweden               |                   2 |
+| Switzerland          |                   1 |
+| Thailand             |                   3 |
+| Turkey               |                   2 |
+| United Arab Emirates |                   4 |
+| United Kingdom       |                   2 |
+| United States        |                   2 |
++----------------------+---------------------+
+20 rows in set (0.000 sec)
+
++----------------------+---------------+
+| Transport_Preference | NumberOfUsers |
++----------------------+---------------+
+| Flight               |            35 |
+| Train                |             5 |
++----------------------+---------------+
+2 rows in set (0.000 sec)
+
+MariaDB [dbms_project]>

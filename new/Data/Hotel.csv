@@ -1,0 +1,51 @@
+Hotel_id,Name,No_Of_Rooms,Cost,Address,Rating
+H1001,Grand Hyatt,200,5000,Mumbai,8.5
+H1002,Taj Palace,150,6000,Delhi,9
+H1003,Marriott Marquis,180,5500,Bengaluru,8.7
+H1004,Hilton,220,4800,Chennai,8.2
+H1005,InterContinental,190,5200,Kolkata,8.4
+H1006,The Oberoi,210,5100,Jaipur,8.8
+H1007,ITC Grand Chola,240,4700,Hyderabad,8.3
+H1008,Leela Palace,230,4900,Pune,8.6
+H1009,Radisson Blu,170,5700,Ahmedabad,8.1
+H1010,Hyatt Regency,200,5400,Lucknow,8.9
+H1011,The Ritz-Carlton,250,4600,Goa,8
+H1012,Novotel,160,6200,Chandigarh,9.1
+H1013,Four Seasons,190,5300,Nagpur,8.7
+H1014,Westin,210,5100,Indore,8.4
+H1015,Shangri-La,180,5800,Varanasi,8.6
+H1016,Le Meridien,220,5000,Dehradun,8.2
+H1017,DoubleTree,200,5600,Bhopal,8.5
+H1018,Crowne Plaza,190,5900,Gurugram,8.8
+H1019,JW Marriott,240,4800,Ludhiana,8.3
+H1020,Trident,230,5200,Raipur,8.7
+H1021,The Leela,170,5700,Vadodara,8.2
+H1022,Holiday Inn,200,5400,Ranchi,8.9
+H1023,Park Hyatt,250,4600,Visakhapatnam,8
+H1024,Grand Mercure,160,6200,Puducherry,9.1
+H1025,Aloft,190,5300,Kochi,8.7
+H1026,Hotel Formule1,210,5100,Mysuru,8.4
+H1027,ibis,180,5800,Thiruvananthapuram,8.6
+H1028,The Lalit,220,5000,Bhubaneswar,8.2
+H1029,Radisson,200,5600,Aurangabad,8.5
+H1030,Renaissance,190,5900,Surat,8.8
+H1031,ITC Maurya,230,5200,Patna,8.7
+H1032,The Westin,170,5700,Jodhpur,8.2
+H1033,Taj Bengal,200,5400,Kanpur,8.9
+H1034,Le Méridien,250,4600,Gwalior,8
+H1035,Hotel Sahara Star,160,6200,Amritsar,9.1
+H1036,The Gateway Hotel,190,5300,Nashik,8.7
+H1037,Hyatt Pune,210,5100,Kolhapur,8.4
+H1038,Hilton Mumbai,180,5800,Jabalpur,8.6
+H1039,Taj Lands End,220,5000,Allahabad,8.2
+H1040,The St. Regis,200,5600,Rajkot,8.5
+H1041,Le Méridien,190,5900,Guwahati,8.8
+H1042,The Ritz-Carlton,230,5200,Rourkela,8.7
+H1043,Oberoi Grand,170,5700,Hisar,8.2
+H1044,ITC Sonar,200,5400,Ramgarh,8.9
+H1045,The Oberoi Cecil,250,4600,Kharagpur,8
+H1046,Hotel Trident,200,5500,Panchkula,8.4
+H1047,The Lalit Great Eastern,220,5200,Siliguri,8.6
+H1048,Crowne Plaza Jaipur Tonk Road,210,5300,Jaipur,8.5
+H1049,Hyatt Ahmedabad,190,5700,Ahmedabad,8.7
+H1050,Marriott Hotel Kochi,180,5800,Kochi,8.9

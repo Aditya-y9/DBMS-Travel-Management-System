@@ -1,0 +1,102 @@
+"1. Admin Table: Who are the administrators registered in the system, along with their details?"
+2. User Table: Can you provide the details of all registered users?
+3. UserProfile Table: What are the blood groups of the users registered in the system?
+4. UserAccount Table: Could you list all user accounts along with their associated details such as date of joining and wallet balance?
+"5. TransportType Table: What are the different types of transportation available in the system, along with their fare and vehicle type?"
+"6. Hotel Table: Please provide the details of all hotels including their names, number of rooms, cost, and contact information."
+"7. TouristPlaces Table: Which tourist places are currently registered in the system, and where are they located?"
+"8. Itinerary Table: Can you show me the details of all planned itineraries, including the destinations, budgets, and travel dates?"
+"9. UserPreference Table: What are the preferences of users regarding budget, climate, food, etc., for their travel plans?"
+"10. Bill Table: Could you provide the details of all bills including the amount, date, and payment method used by users?"
+"11. Show administrators with the role 'Superadmin' and registered before January 1, 2023."
+12. List administrators with the role 'Admin' and whose name starts with 'J'.
+13. Display administrators with the role 'Moderator' and registered in 2022.
+14. Provide details of users who registered in 2023 and are from the United States.
+15. Show users with email addresses ending with '@gmail.com' and having a phone number starting with '+1'.
+16. List users with names containing 'John' and registered in the last 30 days.
+17. Display blood groups of users aged between 25 and 35 from Canada.
+18. Show blood groups of users who prefer hot climates and have a budget over ?1000.
+19. Provide blood groups of users with email addresses containing 'example.com' and residing in New York.
+"20. List user accounts with a wallet balance over ?500 and registered after January 1, 2022."
+21. Provide blood groups of users aged between 25 and 35 from the city 'New York' and with a budget over ?1000.
+"22. Show user accounts with a wallet balance over ?500, registered after January 1, 2022, and from the city 'Los Angeles'."
+"23. Display transportation options with fares less than ?50 and vehicle type 'Bus', provided by 'XYZ Transport'."
+"24. Provide details of hotels with a rating above 4 stars, located in 'New York', and with more than 100 rooms."
+25. Show tourist places located in countries with names containing 'Island' and cities starting with 'P'.
+"26. List planned itineraries with a budget between ?500 and ?1000, traveling to 'Italy', for dates after January 1, 2023."
+"27. Display user preferences for destinations with a rating above 4 stars and a budget over ?1000, traveling with 2 travelers."
+"28. Provide details of bills paid via credit card and PayPal, and the amount exceeding ?100, paid by users from the country 'USA'."
+"29. List bills paid via credit card or PayPal, and the amount less than ?50, paid by users from the city 'New York'."
+30. Show administrators registered in 2022 or earlier.
+31. List users who registered in the last 90 days.
+32. Provide details of users from the country 'UK' or 'Australia' with phone numbers starting with '+44'.
+33. Display blood groups of users with email addresses ending with '@yahoo.com'.
+"34. Show user accounts with a wallet balance less than ?50 and registered before January 1, 2022."
+35. Provide transportation options with fares greater than ?100 and vehicle type 'Car'.
+36. List hotels with a rating of 3 stars and located in 'London' or 'Paris'.
+37. Display tourist places located in 'Italy' or 'Spain' with a city name starting with 'R'.
+38. Show planned itineraries with a budget over ?2000 and traveling to 'Japan'.
+39. Provide user preferences for destinations with a rating of 5 stars and a budget between ?1000 and ?2000.
+40. Show hotels with a rating of 4 stars or higher and located in either 'New York' or 'Los Angeles'.
+41. List tourist places located in countries starting with 'S' and cities starting with 'M'.
+42. Provide itineraries with a budget less than ?1000 and traveling to 'France' or 'Germany'.
+43. Display user preferences for destinations with a budget over ?1500 and a rating between 3 and 4.
+44. Show bills paid via PayPal with an amount greater than ?200 and made by users with names containing 'Smith'.
+"45. Provide administrators who are either 'Admin' or 'Superadmin' and registered after January 1, 2023."
+"46. List users who prefer 'Cold' climate, have a budget over ?1000, and travel with more than 3 travelers."
+47. Display transport options provided by 'XYZ Transport' with a fare less than ?50 and vehicle type 'Bus'.
+"48. Show hotels with a rating above 4 stars, located in 'Tokyo' or 'Sydney' with more than 100 rooms."
+49. Provide tourist places located in countries with names containing 'Republic' and cities starting with 'S'.
+"50. List itineraries with a budget between ?500 and ?1000, traveling to 'Germany' with a rating of 4 stars."
+"51. Display user preferences for destinations with a budget over ?1000, a rating above 3 stars, and no preference for food."
+52. Show hotels with a rating of 3 stars and located in 'London' or 'Paris'.
+53. Provide tourist places located in countries with names containing 'Island' and cities containing 'Beach'.
+54. List itineraries with a budget less than ?500 and traveling to 'Spain' with a rating of 3 stars.
+"55. Display user preferences for destinations with a budget over ?2000 and a rating above 4 stars, traveling with more than 2 travelers."
+56. Show bills paid via 'Bank Transfer' with an amount less than ?100 and made by users with email addresses ending with '@hotmail.com'.
+"57. Provide administrators who are 'Moderator' and registered before January 1, 2022, in the country 'USA'."
+"58. List users who prefer 'Tropical' climate and have a budget over ?1500, but travel with 2 or fewer travelers."
+59. Display transport options provided by 'ABC Transport' with a fare less than ?100 and vehicle type 'Train'.
+"60. Show hotels with a rating above 4 stars and located in 'London' or 'Rome', with more than 100 rooms."
+61. Provide tourist places located in countries with names containing 'Island' and cities containing 'Beach'.
+62. List itineraries with a budget less than ?500 and traveling to 'Spain' with a rating of 3 stars.
+"63. Display user preferences for destinations with a budget over ?2000 and a rating above 4 stars, traveling with more than 2 travelers."
+64. Show bills paid via 'Bank Transfer' with an amount less than ?100 and made by users with email addresses ending with '@hotmail.com'.
+"65. Provide administrators who are 'Moderator' and registered before January 1, 2022, in the country 'USA'."
+"66. List users who prefer 'Tropical' climate and have a budget over ?1500, but travel with 2 or fewer travelers."
+67. Display transport options provided by 'ABC Transport' with a fare less than ?100 and vehicle type 'Train'.
+"68. Show hotels with a rating above 4 stars and located in 'London' or 'Rome', with more than 100 rooms."
+"69. Show user accounts with a wallet balance over ?1000 and registered after January 1, 2022."
+"70. Provide details of bills paid via credit card and PayPal, and the amount exceeding ?100, paid by users from the country 'USA'."
+"71. List bills paid via credit card or PayPal, and the amount less than ?50, paid by users from the city 'New York'."
+72. Show administrators registered in 2022 or earlier.
+73. List users who registered in the last 90 days.
+74. Provide details of users from the country 'UK' or 'Australia' with phone numbers starting with '+44'.
+75. Display blood groups of users with email addresses ending with '@yahoo.com'.
+"76. Show user accounts with a wallet balance less than ?50 and registered before January 1, 2022."
+77. Provide transportation options with fares greater than ?100 and vehicle type 'Car'.
+78. List hotels with a rating of 3 stars and located in 'London' or 'Paris'.
+79. Display tourist places located in 'Italy' or 'Spain' with a city name starting with 'R'.
+80. Show planned itineraries with a budget over ?2000 and traveling to 'Japan'.
+81. Provide user preferences for destinations with a rating of 5 stars and a budget between ?1000 and ?2000.
+82. Show hotels with a rating of 4 stars or higher and located in either 'New York' or 'Los Angeles'.
+83. List tourist places located in countries starting with 'S' and cities starting with 'M'.
+84. Provide itineraries with a budget less than ?1000 and traveling to 'France' or 'Germany'.
+85. Display user preferences for destinations with a budget over ?1500 and a rating between 3 and 4.
+86. Show bills paid via PayPal with an amount greater than ?200 and made by users with names containing 'Smith'.
+"87. Provide administrators who are either 'Admin' or 'Superadmin' and registered after January 1, 2023."
+"88. List users who prefer 'Cold' climate, have a budget over ?1000, and travel with more than 3 travelers."
+89. Display transport options provided by 'XYZ Transport' with a fare less than ?50 and vehicle type 'Bus'.
+"90. Show hotels with a rating above 4 stars, located in 'Tokyo' or 'Sydney' with more than 100 rooms."
+91. Provide tourist places located in countries with names containing 'Republic' and cities starting with 'S'.
+"92. List itineraries with a budget between ?500 and ?1000, traveling to 'Germany' with a rating of 4 stars."
+"93. Display user preferences for destinations with a budget over ?1000, a rating above 3 stars, and no preference for food."
+94. Show hotels with a rating of 3 stars and located in 'London' or 'Paris'.
+95. Provide tourist places located in countries with names containing 'Island' and cities containing 'Beach'.
+96. List itineraries with a budget less than ?500 and traveling to 'Spain' with a rating of 3 stars.
+"97. Display user preferences for destinations with a budget over ?2000 and a rating above 4 stars, traveling with more than 2 travelers."
+98. Show bills paid via 'Bank Transfer' with an amount less than ?100 and made by users with email addresses ending with '@hotmail.com'.
+"99. Provide administrators who are 'Moderator' and registered before January 1, 2022, in the country 'USA'."
+"100. List users who prefer 'Tropical' climate and have a budget over ?1500, but travel with 2 or fewer travelers."
+101. Display transport options provided by 'ABC Transport' with a fare less than ?100 and vehicle type 'Train'.
+"102. Show hotels with a rating above 4 stars and located in 'London' or 'Rome', with more than 100 rooms."
