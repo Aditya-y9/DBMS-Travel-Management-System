@@ -2105,10 +2105,10 @@ ul.paging{
     visibility: visible;
     opacity: 1;
 }
-.footer-social-icons ul li a.facebook {
+.footer-social-icons ul li a.github {
 	background-position:0px 0px;
 }
-.footer-social-icons ul li a.facebook:hover {
+.footer-social-icons ul li a.github:hover {
 	background-position:-0px -30px;
 }
 .footer-social-icons ul li a.twitter {

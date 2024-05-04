@@ -1,3 +1,4 @@
+
 <?php if($_SESSION['login'])
 {?>
 <div class="top-header">
@@ -37,12 +38,13 @@
 <div class="header">
 	<div class="container">
 		<div class="logo wow fadeInDown animated" data-wow-delay=".5s">
-			<a href="index.php">Tourism <span>Management System</span></a>	
+			<a href="index.php">ADITS <span>Travel Management Portal</span></a>	
 		</div>
 	
 		<div class="lock fadeInDown animated" data-wow-delay=".5s"> 
 			<li><i class="fa fa-lock"></i></li>
-            <li><div class="securetxt">SAFE &amp; SECURE </div></li>
+            <li><div class="securetxt" >Safe &amp; Secure <span style="color: red;">Database</span></div></li>
+			<li><div class="securetxt">Powered by <span style="color: red;">MariaDB</span></div></li>
 			<div class="clearfix"></div>
 		</div>
 		<div class="clearfix"></div>
@@ -70,9 +72,8 @@
 							<li><a href="index.php">Home</a></li>
 							<li><a href="page.php?type=aboutus">About</a></li>
 								<li><a href="package-list.php">Tour Packages</a></li>
-								<li><a href="page.php?type=privacy">Privacy Policy</a></li>
-								<li><a href="page.php?type=terms">Terms of Use</a></li>
-								<li><a href="page.php?type=contact">Contact Us</a></li>
+								<li><a href="privacy.php">Privacy Policy</a></li>
+								<li><a href="contactus.php">Contact Us</a></li>
 								<li><a href="dashboard.php">User Dashboard</a></li>
 								<?php if($_SESSION['login'])
 {?>

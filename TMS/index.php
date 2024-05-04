@@ -6,7 +6,7 @@ include('includes/config.php');
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>TMS | Tourism Management System</title>
+<title>ADITS | Tourism Management System</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -32,7 +32,7 @@ include('includes/config.php');
 <?php include('includes/header.php');?>
 <div class="banner">
 	<div class="container">
-		<h1 class="wow zoomIn animated animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn;"> TMS - Tourism Management System</h1>
+		<h1 class="wow zoomIn animated animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn;"> ADITS - Tourism Management System</h1>
 	</div>
 </div>
 
@@ -42,7 +42,7 @@ include('includes/config.php');
 	<div class="rupes">
 		<div class="col-md-4 rupes-left wow fadeInDown animated animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">
 			<div class="rup-left">
-				<a href="offers.html"><i class="fa fa-usd"></i></a>
+				<a href="offers.html"><i class="fa fa-inr fa-5x"></i></a>
 			</div>
 			<div class="rup-rgt">
 				<h3>UP TO USD. 50 OFF</h3>
@@ -64,11 +64,11 @@ include('includes/config.php');
 		</div>
 		<div class="col-md-4 rupes-left wow fadeInDown animated animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">
 			<div class="rup-left">
-				<a href="offers.html"><i class="fa fa-mobile"></i></a>
+				<a href="offers.html"><i class="fa fa-user"></i></a>
 			</div>
 			<div class="rup-rgt">
-				<h3>FLAT USD. 50 OFF</h3>
-				<h4><a href="offers.html">US APP OFFER</a></h4>
+				<h3>FLAT <div class="fa fa-inr"></div> 500 OFF</h3>
+				<h4><a href="offers.html">SPECIAL OFFER</a></h4>
 			
 			</div>
 				<div class="clearfix"></div>
@@ -128,42 +128,48 @@ foreach($results as $result)
 
 
 
-<!--- routes ---->
-<div class="routes">
+<div class="homepage">
 	<div class="container">
-		<div class="col-md-4 routes-left wow fadeInRight animated" data-wow-delay=".5s">
-			<div class="rou-left">
-				<a href="#"><i class="glyphicon glyphicon-list-alt"></i></a>
-			</div>
-			<div class="rou-rgt wow fadeInDown animated" data-wow-delay=".5s">
-				<h3>80000</h3>
-				<p>Enquiries</p>
-			</div>
-				<div class="clearfix"></div>
-		</div>
-		<div class="col-md-4 routes-left">
-			<div class="rou-left">
-				<a href="#"><i class="fa fa-user"></i></a>
-			</div>
-			<div class="rou-rgt">
-				<h3>1900</h3>
-				<p>Regestered users</p>
-			</div>
-				<div class="clearfix"></div>
-		</div>
-		<div class="col-md-4 routes-left wow fadeInRight animated" data-wow-delay=".5s">
-			<div class="rou-left">
-				<a href="#"><i class="fa fa-ticket"></i></a>
-			</div>
-			<div class="rou-rgt">
-				<h3>7,00,00,000+</h3>
-				<p>Booking</p>
-			</div>
-				<div class="clearfix"></div>
+		<div class="col-md-12 homepage-left">
+			<img src="./images/15.jpg" alt="Image Placeholder" class="img-responsive" style="margin: 0 auto;text-align: center; justify-content: center;">
+			<h3>Welcome to our Travel Website</h3>
+			<p>Discover amazing destinations, book your dream vacation, and create unforgettable memories.</p>
+			<!-- Add more content here -->
+			<p>Explore our exclusive travel packages and find the perfect one for your next adventure.</p>
+			<a href="package-details.php?pkgid=<?php echo htmlentities($result->PackageId);?>" class="btn btn-primary">View Packages</a>
 		</div>
 		<div class="clearfix"></div>
 	</div>
 </div>
+<style>
+.homepage {
+	background-color: #f5f5f5;
+	padding: 50px 0;
+}
+
+.homepage-left {
+	text-align: center;
+}
+
+.homepage-left img {
+	margin-bottom: 20px;
+}
+
+.homepage-left h3 {
+	font-size: 28px;
+	margin-bottom: 10px;
+}
+
+.homepage-left p {
+	font-size: 16px;
+	margin-bottom: 20px;
+}
+
+.homepage-left .btn {
+	font-size: 18px;
+	padding: 10px 20px;
+}
+</style>
 
 <?php include('includes/footer.php');?>
 <!-- signup -->
