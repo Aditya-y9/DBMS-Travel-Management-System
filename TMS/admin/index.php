@@ -4,10 +4,10 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 // DB credentials.
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', '');
-define('DB_NAME', 'dbms_project');
+define('DB_HOST', 'MSHOME:3304');
+define('DB_USER', 'username');
+define('DB_PASS', 'password');
+define('DB_NAME', 'dbms');
 
 // Establish database connection.
 try {

@@ -1,6 +1,19 @@
 <?php
 session_start();
-include('includes/config.php');
+// DB credentials.
+define('DB_HOST', 'MSHOME:3304');
+define('DB_USER', 'username');
+define('DB_PASS', 'password');
+define('DB_NAME', 'dbms');
+
+// Establish database connection.
+try {
+	$dbh = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME, DB_USER, DB_PASS, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
+	print("Connection successful");
+} catch (PDOException $e) {
+	exit("Error: " . $e->getMessage());
+}
+
 if(strlen($_SESSION['alogin']) == 0) {  
     header('location:index.php');
 } else {
@@ -125,6 +138,44 @@ if(strlen($_SESSION['alogin']) == 0) {
                     </div>
                     <!-- Add more widgets as per your requirement -->
                 </div>
+                <!-- Add charts using Charts.js library -->
+                <canvas id="myChart"></canvas>
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                <script>
+                    var ctx = document.getElementById('myChart').getContext('2d');
+                    var myChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: ['Admins', 'Regular Users', 'Bookings', 'Hotels', 'Tourist Places'],
+                            datasets: [{
+                                label: 'Counts',
+                                data: [<?php echo $totalAdmins; ?>, <?php echo $totalRegularUsers; ?>, <?php echo $totalBookings; ?>, <?php echo $totalHotels; ?>, <?php echo $totalTouristPlaces; ?>],
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.2)',
+                                    'rgba(54, 162, 235, 0.2)',
+                                    'rgba(255, 206, 86, 0.2)',
+                                    'rgba(75, 192, 192, 0.2)',
+                                    'rgba(153, 102, 255, 0.2)'
+                                ],
+                                borderColor: [
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)'
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+                </script>
             </div>
         </div>
     </div>
@@ -156,6 +207,45 @@ if(strlen($_SESSION['alogin']) == 0) {
 											toggle = !toggle;
 										});
 							</script>
+
+// more charts
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Admins', 'Regular Users', 'Bookings', 'Hotels', 'Tourist Places'],
+                datasets: [{
+                    label: 'Counts',
+                    data: [<?php echo $totalAdmins; ?>, <?php echo $totalRegularUsers; ?>, <?php echo $totalBookings; ?>, <?php echo $totalHotels; ?>, <?php echo $totalTouristPlaces; ?>],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
 <!--js -->
 <script src="js/jquery.nicescroll.js"></script>
 <script src="js/scripts.js"></script>
@@ -220,5 +310,4 @@ if(strlen($_SESSION['alogin']) == 0) {
 	   
 	});
 	</script>
-</body>
-</html>
+

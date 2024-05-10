@@ -2,10 +2,11 @@
 session_start();
 error_reporting(0);
 include('includes/config.php');
-if(strlen($_SESSION['alogin'])==0) {	
+if(strlen($_SESSION['alogin'])==0) {   
     header('location:index.php');
 } else { 
 ?>
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -44,14 +45,14 @@ if(strlen($_SESSION['alogin'])==0) {
            <div class="mother-grid-inner">
                 <!-- Header -->
                 <?php include('includes/header.php');?>
-                <div class="clearfix"> </div>	
+                <div class="clearfix"> </div>    
             </div>
             <!-- Breadcrumb -->
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.html">Home</a><i class="fa fa-angle-right"></i>Manage Users</li>
             </ol>
             <!-- Manage Users Table -->
-            <div class="agile-grids">	
+            <div class="agile-grids">    
                 <div class="agile-tables">
                     <div class="w3l-table-info">
                         <h2>Manage Users</h2>
@@ -64,6 +65,7 @@ if(strlen($_SESSION['alogin'])==0) {
                                     <th>Email Id</th>
                                     <th>RegDate</th>
                                     <th>Updation Date</th>
+                                    <th>Action</th> <!-- Added Action column for edit and delete buttons -->
                                 </tr>
                             </thead>
                             <tbody>
@@ -75,7 +77,7 @@ if(strlen($_SESSION['alogin'])==0) {
                                     $cnt=1;
                                     if($query->rowCount() > 0) {
                                         foreach($results as $result) {
-                                ?>		
+                                ?>      
                                 <tr>
                                     <td><?php echo htmlentities($cnt);?></td>
                                     <td><?php echo htmlentities($result->Name);?></td>
@@ -83,6 +85,10 @@ if(strlen($_SESSION['alogin'])==0) {
                                     <td><?php echo htmlentities($result->Email_Id);?></td>
                                     <td><?php echo htmlentities($result->Dob);?></td>
                                     <td><?php echo htmlentities($result->UpdationDate);?></td>
+                                    <td>
+                                        <a href="edit_user.php?id=<?php echo htmlentities($result->id);?>">Edit</a> <!-- Edit link -->
+                                        <a href="delete_user.php?id=<?php echo htmlentities($result->id);?>">Delete</a> <!-- Delete link -->
+                                    </td>
                                 </tr>
                                 <?php 
                                     $cnt=$cnt+1;

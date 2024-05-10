@@ -1,12 +1,19 @@
 <?php
 session_start();
-error_reporting(0);
-include('includes/config.php');
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+// DB credentials.
+define('DB_HOST', 'MSHOME:3304');
+define('DB_USER', 'username');
+define('DB_PASS', 'password');
+define('DB_NAME', 'dbms');
+
 if(strlen($_SESSION['alogin'])==0)
 	{	
 header('location:index.php');
 }
 else{ 
+	$dbh = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME, DB_USER, DB_PASS, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
 	?>
 <!DOCTYPE HTML>
 <html>
@@ -95,7 +102,7 @@ else{
 						  </tr>
 						</thead>
 						<tbody>
-<?php $sql = "SELECT * from dbms_project.TblTourPackages";
+<?php $sql = "SELECT * from dbms.TblTourPackages";
 $query = $dbh -> prepare($sql);
 //$query -> bindParam(':city', $city, PDO::PARAM_STR);
 $query->execute();

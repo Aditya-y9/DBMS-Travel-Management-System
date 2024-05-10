@@ -1,7 +1,17 @@
 <?php
 session_start();
-error_reporting(0);
-include('includes/config.php');
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+// DB credentials.
+define('DB_HOST', 'MSHOME:3304');
+define('DB_USER', 'username');
+define('DB_PASS', 'password');
+define('DB_NAME', 'dbms');
+
+
+$error = ""; // Define $error variable
+$msg = "";   // Define $msg variable
+
 if(strlen($_SESSION['alogin'])==0)
 	{	
 header('location:index.php');
@@ -9,6 +19,14 @@ header('location:index.php');
 else{
 if(isset($_POST['submit']))
 {
+	// Establish database connection.
+try {
+	$dbh = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME, DB_USER, DB_PASS, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
+	print("Connection successful");
+} catch (PDOException $e) {
+	exit("Error: " . $e->getMessage());
+}
+
 $pname=$_POST['packagename'];
 $ptype=$_POST['packagetype'];	
 $plocation=$_POST['packagelocation'];
@@ -17,7 +35,7 @@ $pfeatures=$_POST['packagefeatures'];
 $pdetails=$_POST['packagedetails'];	
 $pimage=$_FILES["packageimage"]["name"];
 move_uploaded_file($_FILES["packageimage"]["tmp_name"],"pacakgeimages/".$_FILES["packageimage"]["name"]);
-$sql="INSERT INTO dbms_project.TblTourPackages(PackageName,PackageType,PackageLocation,PackagePrice,PackageFetures,PackageDetails,PackageImage) VALUES(:pname,:ptype,:plocation,:pprice,:pfeatures,:pdetails,:pimage)";
+$sql="INSERT INTO dbms.TblTourPackages(PackageName,PackageType,PackageLocation,PackagePrice,PackageFetures,PackageDetails,PackageImage) VALUES(:pname,:ptype,:plocation,:pprice,:pfeatures,:pdetails,:pimage)";
 $query = $dbh->prepare($sql);
 $query->bindParam(':pname',$pname,PDO::PARAM_STR);
 $query->bindParam(':ptype',$ptype,PDO::PARAM_STR);
@@ -28,6 +46,9 @@ $query->bindParam(':pdetails',$pdetails,PDO::PARAM_STR);
 $query->bindParam(':pimage',$pimage,PDO::PARAM_STR);
 $query->execute();
 $lastInsertId = $dbh->lastInsertId();
+
+
+
 if($lastInsertId)
 {
 $msg="Package Created Successfully";

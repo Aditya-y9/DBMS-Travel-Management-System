@@ -272,18 +272,18 @@ if ( $( "<a>" ).data( "a-b", "a" ).removeData( "a-b" ).data( "a-b" ) ) {
 	$.ui.ie6 = parseFloat( uaMatch[ 1 ], 10 ) === 6;
 })();
 
-$.fn.extend({
-	disableSelection: function() {
-		return this.bind( ( $.support.selectstart ? "selectstart" : "mousedown" ) +
-			".ui-disableSelection", function( event ) {
-				event.preventDefault();
-			});
-	},
+// $.fn.extend({
+// 	disableSelection: function() {
+// 		return this.bind( ( $.support.selectstart ? "selectstart" : "mousedown" ) +
+// 			".ui-disableSelection", function( event ) {
+// 				event.preventDefault();
+// 			});
+// 	},
 
-	enableSelection: function() {
-		return this.unbind( ".ui-disableSelection" );
-	}
-});
+// 	enableSelection: function() {
+// 		return this.unbind( ".ui-disableSelection" );
+// 	}
+// });
 
 $.extend( $.ui, {
 	// $.ui.plugin is deprecated.  Use the proxy pattern instead.

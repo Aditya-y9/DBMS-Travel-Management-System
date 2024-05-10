@@ -1,8 +1,9 @@
 
 html, body{
 	font-size: 100%;
-	background: #fff;
+	background: #000000;
 	font-family: 'Open Sans', sans-serif;
+
 }
 body a,.grid_1,plan_1,plan_1.one,plan_1.two,i.icon1, i.icon2, i.icon3, i.icon4, i.icon5, i.icon6 {
 	transition:0.5s all;
@@ -818,7 +819,7 @@ i.fa.fa-gift{
 	width: 100%;
    height: 100%;
    float: left;
-   overflow: hidden;
+   overflow: auto;
    position: relative;
    text-align: center;
    -webkit-box-shadow: 1px 1px 2px #e6e6e6;
@@ -831,7 +832,7 @@ i.fa.fa-gift{
 	width: 100%;
    height: 100%;
    position: absolute;
-   overflow: hidden;
+   overflow: auto;
    top: 0;
    left: 0;
    cursor:pointer;
