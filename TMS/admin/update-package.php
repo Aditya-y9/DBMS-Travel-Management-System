@@ -36,20 +36,31 @@ if ($result->num_rows > 0) {
 
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get the input from the form
-    $package_name = $_POST["package_name"];
-    $package_type = $_POST["package_type"];
-    $package_location = $_POST["package_location"];
-    $package_price = $_POST["package_price"];
-    $package_features = $_POST["package_features"];
+    if (isset($_POST['submit'])) {
+        // Get the input from the form
+        $package_name = $_POST["package_name"];
+        $package_type = $_POST["package_type"];
+        $package_location = $_POST["package_location"];
+        $package_price = $_POST["package_price"];
+        $package_features = $_POST["package_features"];
 
-    // Update the tbltourpackages table
-    $sql = "UPDATE tbltourpackages SET PackageName = '$package_name', PackageType = '$package_type', PackageLocation = '$package_location', PackagePrice = '$package_price', PackageFetures = '$package_features' WHERE PackageId = '$package_id'";
+        // Update the tbltourpackages table
+        $sql = "UPDATE tbltourpackages SET PackageName = '$package_name', PackageType = '$package_type', PackageLocation = '$package_location', PackagePrice = '$package_price', PackageFetures = '$package_features' WHERE PackageId = '$package_id'";
 
-    if ($conn->query($sql) === TRUE) {
-        echo "Package updated successfully";
-    } else {
-        echo "Error updating package: " . $conn->error;
+        if ($conn->query($sql) === TRUE) {
+            echo "Package updated successfully";
+        } else {
+            echo "Error updating package: " . $conn->error;
+        }
+    } elseif (isset($_POST['delete'])) {
+        // Delete the package
+        $sql_delete = "DELETE FROM tbltourpackages WHERE PackageId = '$package_id'";
+        if ($conn->query($sql_delete) === TRUE) {
+            echo "Package deleted successfully";
+            // Redirect to a page after deletion if needed
+        } else {
+            echo "Error deleting package: " . $conn->error;
+        }
     }
 }
 ?>
@@ -63,115 +74,87 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body style="margin-left : 270px;">
 <img src="https://www.kstdc.co/wp-content/themes/kstdc/images/inbg.jpg" alt="" style="width: 1000px" height="150px">
-	<div class="grid-form">
-		<div class="grid-form1">
-			<h3>Update Package</h3>
-			<div class="tab-content">
-				<div class="tab-pane active" id="horizontal-form">
-					<form class="form-horizontal" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"] . "?pid=" . $package_id);?>">
-						<div class="form-group">
-							<label for="package_name" class="col-sm-2 control-label">Package Name</label>
-							<div class="col-sm-8">
-								<input type="text" class="form-control1" name="package_name" value="<?php echo $package_name; ?>" required>
-							</div>
-						</div>
-						<div>
-							<label for="package_type" class="col-sm-2 control-label">Package Type</label>
-							<div class="col-sm-8">
-								<input type="text" class="form-control1" name="package_type" value="<?php echo $package_type; ?>" required>
-							</div>
-						</div>
-						<div>
-							<label for="package_location" class="col-sm-2 control-label">Package Location</label>
+    <div class="grid-form">
+        <div class="grid-form1">
+            <h3>Update Package</h3>
+            <div class="tab-content">
+                <div class="tab-pane active" id="horizontal-form">
+                    <form class="form-horizontal" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"] . "?pid=" . $package_id);?>">
+                        <div class="form-group">
+                            <label for="package_name" class="col-sm-2 control-label">Package Name</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control1" name="package_name" value="<?php echo $package_name; ?>" required>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="package_type" class="col-sm-2 control-label">Package Type</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control1" name="package_type" value="<?php echo $package_type; ?>" required>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="package_location" class="col-sm-2 control-label">Package Location</label>
 
-							<div class="col-sm-8">
-								<input type="text" class="form-control1" name="package_location" value="<?php echo $package_location; ?>" required>
-							</div>
-						</div>
-						<div>
-							<label for="package_price" class="col-sm-2 control-label">Package Price</label>
-							<div class="col-sm-8">
-								<input type="text" class="form-control1" name="package_price" value="<?php echo $package_price; ?>" required>
-							</div>
-						</div>
-						<div>
-							<label for="package_features" class="col-sm-2 control-label">Package Features</label>
-							<div class="col-sm-8">
-								<input type="text" class="form-control1" name="package_features" value="<?php echo $package_features; ?>" required>
-							</div>
-						</div>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control1" name="package_location" value="<?php echo $package_location; ?>" required>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="package_price" class="col-sm-2 control-label">Package Price</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control1" name="package_price" value="<?php echo $package_price; ?>" required>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="package_features" class="col-sm-2 control-label">Package Features</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control1" name="package_features" value="<?php echo $package_features; ?>" required>
+                            </div>
+                        </div>
 
-						<div class="form-group">
-							<div class="col-sm-8 col-sm-offset-2">
-								<input type="submit" name="submit" value="Update Package" class="btn btn-primary">
-							</div>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="clearfix"></div>
-	<!--/sidebar-menu-->
-	<?php include('includes/sidebarmenu.php');?>
-	<div class="clearfix"></div>
-	</div>
-	<script>
-		var toggle = true;
+                        <div class="form-group">
+                            <div class="col-sm-8 col-sm-offset-2">
+                                <input type="submit" name="submit" value="Update Package" class="btn btn-primary">
+                            </div>
+                        </div>
+                        <!-- delete package -->
+                        <div class="form-group">
+                            <div class="col-sm-8 col-sm-offset-2">
+                                <input type="submit" name="delete" value="Delete Package" class="btn btn-danger">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <!--/sidebar-menu-->
+    <?php include('includes/sidebarmenu.php');?>
+    <div class="clearfix"></div>
+    </div>
+    <script>
+        var toggle = true;
 
-		$(".sidebar-icon").click(function() {
-			if (toggle) {
-				$(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
-				$("#menu span").css({"position":"absolute"});
-			} else {
-				$(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
-				setTimeout(function() {
-					$("#menu span").css({"position":"relative"});
-				}, 400);
-			}
+        $(".sidebar-icon").click(function() {
+            if (toggle) {
+                $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+                $("#menu span").css({"position":"absolute"});
+            } else {
+                $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+                setTimeout(function() {
+                    $("#menu span").css({"position":"relative"});
+                }, 400);
+            }
 
-			toggle = !toggle;
-		});
-	</script>
-	<!--js -->
-	<script src="js/jquery.nicescroll.js"></script>
-	<script src="js/scripts.js"></script>
-	<!-- Bootstrap Core JavaScript -->
-	<script src="js/bootstrap.min.js"></script>
-	<!-- /Bootstrap Core JavaScript -->
+            toggle = !toggle;
+        });
+    </script>
+    <!--js -->
+    <script src="js/jquery.nicescroll.js"></script>
+    <script src="js/scripts.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- /Bootstrap Core JavaScript -->
 </body>
-  <!--//content-inner-->
-		<!--/sidebar-menu-->
-		<?php include('includes/sidebarmenu.php');?>
-							  <div class="clearfix"></div>		
-							</div>
-							<script>
-							var toggle = true;
-										
-							$(".sidebar-icon").click(function() {                
-							  if (toggle)
-							  {
-								$(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
-								$("#menu span").css({"position":"absolute"});
-							  }
-							  else
-							  {
-								$(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
-								setTimeout(function() {
-								  $("#menu span").css({"position":"relative"});
-								}, 400);
-							  }
-											
-											toggle = !toggle;
-										});
-							</script>
-<!--js -->
-<script src="js/jquery.nicescroll.js"></script>
-<script src="js/scripts.js"></script>
-<!-- Bootstrap Core JavaScript -->
-   <script src="js/bootstrap.min.js"></script>
-   <!-- /Bootstrap Core JavaScript -->	   
-
-</body>
-</html>
 </html>

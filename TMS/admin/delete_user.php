@@ -69,24 +69,58 @@ if(isset($_POST['delete'])) {
 
 // Display form for entering username to be deleted
 ?>
-<html>
-<head>  
-    <title>Delete User</title>
-</head>
-<body>
-    <a href="index.php">Home</a>
-    <br/><br/>
-    <form name="delete_user" method="post" action="">
-        <table border="0">
-            <tr> 
-                <td>Username</td>
-                <td><input type="text" name="username"></td>
-            </tr>
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
-            <tr>
-                <td><input type="submit" name="delete" value="Delete"></td>
-            </tr>
-        </table>
-    </form>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete User</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body style="margin-left: 150px;">
+    <div class="container">
+        <h1 class="my-4">Delete User</h1>
+        <form action="" method="POST">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <button type="submit" name="delete" class="btn btn-danger">Delete User</button>
+        </form>
+    </div>
+
+    <!-- Include Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <div>
+    
+
+    </div>
+ <!-- Sidebar Menu -->
+ <?php include('includes/sidebarmenu.php');?>
+    <div class="clearfix"></div>
+    <script>
+    var toggle = true;
+    $(".sidebar-icon").click(function() {                
+      if (toggle) {
+        $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+        $("#menu span").css({"position":"absolute"});
+      } else {
+        $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+        setTimeout(function() {
+          $("#menu span").css({"position":"relative"});
+        }, 400);
+      }
+      toggle = !toggle;
+    });
+    </script>
+    <!-- Nice Scroll and Scripts -->
+    <script src="js/jquery.nicescroll.js"></script>
+    <script src="js/scripts.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
 </body>
 </html>
