@@ -6,7 +6,7 @@ define('DB_USER', 'username');
 define('DB_PASS', 'password');
 define('DB_NAME', 'dbms');
 
-// Establish database connection.
+// Establish database connection for itineraries.
 try {
     $dbh = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME, DB_USER, DB_PASS, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
     print("Connection successful");
@@ -20,35 +20,70 @@ if(empty($_SESSION['alogin'])) {
     exit();
 }
 
-// Fetch itinerary details from the database
-// <a href="edit_itinerary.php?id=<?php echo $itinerary['Itinerary_id'];
-// get itinerary id from the URL
-$itinerary_id = $_GET['id'];
-$sql = "SELECT * FROM dbms_project.Itinerary WHERE Itinerary_id = :itinerary_id";
+// Fetch itinerary details from the database based on title
+$title = $_GET['title'];
+$sql = "SELECT * FROM Itinerary WHERE Title = :title";
 $query = $dbh->prepare($sql);
-$query->bindParam(':itinerary_id', $itinerary_id, PDO::PARAM_INT);
+$query->bindParam(':title', $title, PDO::PARAM_STR);
 $query->execute();
 $itinerary = $query->fetch(PDO::FETCH_ASSOC);
 
+// Set default values for form fields if itinerary not found
+if(!$itinerary) {
+    $itinerary = [
+        'Title' => '',
+        'Budget' => '',
+        'Country' => '',
+        'State' => '',
+        'City' => '',
+        'Rating' => '',
+        'No_Of_Travellers' => '',
+        'FoodPreference' => '',
+        'Transport_id' => '',
+        'Hotel_id' => '',
+        'Date_Of_Travel' => ''
+    ];
+}
+
 // Handle form submission for editing itinerary
 if(isset($_POST['submit'])) {
+    // Process form submission...
     $title = $_POST['title'];
-    $budget = (int)$_POST['budget']; // Cast budget to integer
-
-    // Add more fields as needed
+    $budget = $_POST['budget'];
+    $country = $_POST['country'];
+    $state = $_POST['state'];
+    $city = $_POST['city'];
+    $rating = $_POST['rating'];
+    $no_of_travellers = $_POST['no_of_travellers'];
+    $food_preference = $_POST['food_preference'];
+    $transport_id = $_POST['transport_id'];
+    $hotel_id = $_POST['hotel_id'];
+    $date_of_travel = $_POST['date_of_travel'];
 
     // Update the itinerary details in the database
-    $sql = "UPDATE Itinerary SET Title = :title, Budget = :budget WHERE Itinerary_id = :itinerary_id";
+    $sql = "UPDATE Itinerary SET Title = :title, Budget = CAST(:budget AS int), Country = :country, State = :state, City = :city, Rating = CAST(:rating AS int), No_Of_Travellers = CAST(:no_of_travellers AS int), FoodPreference = :food_preference, Transport_id = CAST(:transport_id AS int), Hotel_id = CAST(:hotel_id AS int), Date_Of_Travel = :date_of_travel WHERE Title = :title";
+
     $query = $dbh->prepare($sql);
+
     $query->bindParam(':title', $title, PDO::PARAM_STR);
-    $query->bindParam(':budget', $budget, PDO::PARAM_INT); // Bind budget as integer
-    $query->bindParam(':itinerary_id', $itinerary_id, PDO::PARAM_INT);
+    $query->bindParam(':budget', $budget, PDO::PARAM_STR); // Bind as string
+    $query->bindParam(':country', $country, PDO::PARAM_STR);
+    $query->bindParam(':state', $state, PDO::PARAM_STR);
+    $query->bindParam(':city', $city, PDO::PARAM_STR);
+    $query->bindParam(':rating', $rating, PDO::PARAM_STR); // Bind as string
+    $query->bindParam(':no_of_travellers', $no_of_travellers, PDO::PARAM_STR); // Bind as string
+    $query->bindParam(':food_preference', $food_preference, PDO::PARAM_STR);
+    $query->bindParam(':transport_id', $transport_id, PDO::PARAM_STR); // Bind as string
+    $query->bindParam(':hotel_id', $hotel_id, PDO::PARAM_STR); // Bind as string
+    $query->bindParam(':date_of_travel', $date_of_travel, PDO::PARAM_STR);
+    
     $query->execute();
 
     // Redirect to the same page after editing
-    header('location:edit-itinerary.php?itinerary_id=' . $itinerary_id);
+    header('location:itinerary.php');
     exit();
 }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -58,10 +93,27 @@ if(isset($_POST['submit'])) {
 <body>
     <form method="post" action="">
         <label for="title">Title:</label>
-        <input type="text" id="title" name="title" value="<?php echo $itinerary['Title']; ?>">
+        <input type="text" id="title" name="title" value="<?php echo isset($itinerary['Title']) ? $itinerary['Title'] : ''; ?>">
         <label for="budget">Budget:</label>
-        <input type="number" id="budget" name="budget" value="<?php echo $itinerary['Budget']; ?>">
-        <!-- Add more fields as needed -->
+        <input type="text" id="budget" name="budget" value="<?php echo isset($itinerary['Budget']) ? $itinerary['Budget'] : ''; ?>">
+        <label for="country">Country:</label>
+        <input type="text" id="country" name="country" value="<?php echo isset($itinerary['Country']) ? $itinerary['Country'] : ''; ?>">
+        <label for="state">State:</label>
+        <input type="text" id="state" name="state" value="<?php echo isset($itinerary['State']) ? $itinerary['State'] : ''; ?>">
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city" value="<?php echo isset($itinerary['City']) ? $itinerary['City'] : ''; ?>">
+        <label for="rating">Rating:</label>
+        <input type="text" id="rating" name="rating" value="<?php echo isset($itinerary['Rating']) ? $itinerary['Rating'] : ''; ?>">
+        <label for="no_of_travellers">Number of Travellers:</label>
+        <input type="text" id="no_of_travellers" name="no_of_travellers" value="<?php echo isset($itinerary['No_Of_Travellers']) ? $itinerary['No_Of_Travellers'] : ''; ?>">
+        <label for="food_preference">Food Preference:</label>
+        <input type="text" id="food_preference" name="food_preference" value="<?php echo isset($itinerary['FoodPreference']) ? $itinerary['FoodPreference'] : ''; ?>">
+        <label for="transport_id">Transport ID:</label>
+        <input type="text" id="transport_id" name="transport_id" value="<?php echo isset($itinerary['Transport_id']) ? $itinerary['Transport_id'] : ''; ?>">
+        <label for="hotel_id">Hotel ID:</label>
+        <input type="text" id="hotel_id" name="hotel_id" value="<?php echo isset($itinerary['Hotel_id']) ? $itinerary['Hotel_id'] : ''; ?>">
+        <label for="date_of_travel">Date of Travel:</label>
+        <input type="date" id="date_of_travel" name="date_of_travel" value="<?php echo isset($itinerary['Date_Of_Travel']) ? $itinerary['Date_Of_Travel'] : ''; ?>">
         <input type="submit" name="submit" value="Update">
     </form>
 </body>
