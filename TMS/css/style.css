@@ -1,7 +1,6 @@
-
 html, body{
 	font-size: 100%;
-	background: #000000;
+	background: #f5f5f5;
 	font-family: 'Open Sans', sans-serif;
 
 }
@@ -277,7 +276,7 @@ i.fa.fa-mobile  {
     font-weight: 700;
 }
 .rupes h4 a{
-    color: #000000;
+    color: #000;
 }
 .rupes h4 a:hover{
     color:#34ad00;

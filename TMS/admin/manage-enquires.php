@@ -15,27 +15,26 @@ header('location:index.php');
 }
 else{ 
 	// Establish database connection.
-try {
 	$dbh = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME, DB_USER, DB_PASS, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
-	print("Connection successful");
-} catch (PDOException $e) {
-	exit("Error: " . $e->getMessage());
-}
 	// code for cancel
-if(isset($_REQUEST['eid']))
-	{
-		
-$eid=intval($_GET['eid']);
-$status=1;
-
-$sql = "UPDATE tblenquiry SET Status=:status WHERE  id=:eid";
-$query = $dbh->prepare($sql);
-$query -> bindParam(':status',$status, PDO::PARAM_STR);
-$query-> bindParam(':eid',$eid, PDO::PARAM_STR);
-$query -> execute();
-
-$msg="Enquiry  successfully read";
-}
+	if(isset($_REQUEST['eid'])) {
+		$eid=intval($_GET['eid']);
+		$status=1;
+	
+		$sql = "UPDATE tblenquiry SET Status=:status WHERE  id=:eid";
+		$query = $dbh->prepare($sql);
+		$query->bindParam(':status',$status, PDO::PARAM_STR);
+		$query->bindParam(':eid',$eid, PDO::PARAM_STR);
+		$query->execute();
+	
+		// Delete the enquiry from the database
+		$deleteSql = "DELETE FROM tblenquiry WHERE id=:eid";
+		$deleteQuery = $dbh->prepare($deleteSql);
+		$deleteQuery->bindParam(':eid',$eid, PDO::PARAM_STR);
+		$deleteQuery->execute();
+	
+		$msg="Enquiry successfully read and deleted";
+	}
 
 
 
@@ -166,7 +165,7 @@ foreach($results as $result)
 	?><td>Read</td>
 <?php } else {?>
 
-<td><a href="manage-enquires.php?eid=<?php echo htmlentities($result->id);?>" onclick="return confirm('Do you really want to read')" >Pending</a>
+<td><a href="manage-enquires.php?eid=<?php echo htmlentities($result->id);?>" onclick="return confirm('Do you really want to read and Delete the Enquiry?')" >Pending</a>
 </td>
 <?php } ?>
 </tr>
