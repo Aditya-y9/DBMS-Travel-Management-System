@@ -11,24 +11,31 @@ define('DB_NAME', 'dbms');
 
 // Establish database connection.
 try {
-	$dbh = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME, DB_USER, DB_PASS, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
-	print("Connection successful");
+    $dbh = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME, DB_USER, DB_PASS, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
+    // print("Connection successful"); // You can uncomment this line for testing purposes
 } catch (PDOException $e) {
-	exit("Error: " . $e->getMessage());
+    exit("Error: " . $e->getMessage());
 }
 
 if (isset($_POST['login'])) {
-	$uname = 'Aditya'; // Hardcoded the username
-	$password = 'aditya';
-	
-	print("Username: $uname");
-	print("Password: $password");
-	
-	$_SESSION['alogin'] = $_POST['username'];
-	echo "<script type='text/javascript'> document.location = 'dashboard.php'; </script>";
+    $uname = $_POST['username']; // Get the username from the form
+    $password = $_POST['password']; // Get the password from the form
+    
+    // Query the database to check if the provided credentials match
+    $stmt = $dbh->prepare("SELECT * FROM admin WHERE name = :username AND password = :password");
+    $stmt->bindParam(':username', $uname);
+    $stmt->bindParam(':password', $password);
+    $stmt->execute();
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($user) {
+        $_SESSION['alogin'] = $uname;
+        echo "<script type='text/javascript'> document.location = 'dashboard.php'; </script>";
+    } else {
+        echo "Invalid username or password.";
+    }
 }
 ?>
-
 
 <!DOCTYPE HTML>
 <html>
@@ -55,33 +62,33 @@ if (isset($_POST['login'])) {
 <!-- //lined-icons -->
 </head> 
 <body>
-	<div class="main-wthree">
-	<div class="container">
-	<div class="sin-w3-agile">
-		<h2>Sign In</h2>
-		<form  method="post">
-			<div class="username">
-				<span class="username">Username:</span>
-				<input type="text" name="username" class="name" placeholder="" required="">
-				<div class="clearfix"></div>
-			</div>
-			<div class="password-agileits">
-				<span class="username">Password:</span>
-				<input type="password" name="password" class="password" placeholder="" required="">
-				<div class="clearfix"></div>
-			</div>
-			
-			<div class="login-w3">
-					<input type="submit" class="login" name="login" value="Sign In">
-			</div>
-			<div class="clearfix"></div>
-		</form>
-				<div class="back">
-					<a href="../index.php">Back to home</a>
-				</div>
-				
-	</div>
-	</div>
-	</div>
+    <div class="main-wthree">
+    <div class="container">
+    <div class="sin-w3-agile">
+        <h2>Sign In</h2>
+        <form method="post">
+            <div class="username">
+                <span class="username">Username:</span>
+                <input type="text" name="username" class="name" placeholder="" required="">
+                <div class="clearfix"></div>
+            </div>
+            <div class="password-agileits">
+                <span class="username">Password:</span>
+                <input type="password" name="password" class="password" placeholder="" required="">
+                <div class="clearfix"></div>
+            </div>
+            
+            <div class="login-w3">
+                    <input type="submit" class="login" name="login" value="Sign In">
+            </div>
+            <div class="clearfix"></div>
+        </form>
+                <div class="back">
+                    <a href="../index.php">Back to home</a>
+                </div>
+                
+    </div>
+    </div>
+    </div>
 </body>
 </html>
