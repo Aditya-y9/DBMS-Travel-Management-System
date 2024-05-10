@@ -21,10 +21,10 @@ if(empty($_SESSION['alogin'])) {
 }
 
 // Fetch itinerary details from the database based on title
-$title = $_GET['title'];
-$sql = "SELECT * FROM Itinerary WHERE Title = :title";
+$id = $_GET['id'];
+$sql = "SELECT * FROM Itinerary WHERE Itinerary_id = :id";
 $query = $dbh->prepare($sql);
-$query->bindParam(':title', $title, PDO::PARAM_STR);
+$query->bindParam(':id', $id, PDO::PARAM_STR);
 $query->execute();
 $itinerary = $query->fetch(PDO::FETCH_ASSOC);
 
@@ -61,7 +61,7 @@ if(isset($_POST['submit'])) {
     $date_of_travel = $_POST['date_of_travel'];
 
     // Update the itinerary details in the database
-    $sql = "UPDATE Itinerary SET Title = :title, Budget = CAST(:budget AS int), Country = :country, State = :state, City = :city, Rating = CAST(:rating AS int), No_Of_Travellers = CAST(:no_of_travellers AS int), FoodPreference = :food_preference, Transport_id = CAST(:transport_id AS int), Hotel_id = CAST(:hotel_id AS int), Date_Of_Travel = :date_of_travel WHERE Title = :title";
+    $sql = "UPDATE Itinerary SET Title = :title, Budget = CAST(:budget AS int), Country = :country, State = :state, City = :city, Rating = CAST(:rating AS float), No_Of_Travellers = CAST(:no_of_travellers AS int), FoodPreference = :food_preference, Transport_id = :transport_id, Hotel_id = :hotel_id , Date_Of_Travel = :date_of_travel WHERE Title = :title";
 
     $query = $dbh->prepare($sql);
 
@@ -80,7 +80,7 @@ if(isset($_POST['submit'])) {
     $query->execute();
 
     // Redirect to the same page after editing
-    header('location:itinerary.php');
+    header('location:manage-bookings.php');
     exit();
 }
 
@@ -89,32 +89,98 @@ if(isset($_POST['submit'])) {
 <html>
 <head>
     <title>Edit Itinerary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="date"] {
+            width: calc(100% - 12px);
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
-    <form method="post" action="">
-        <label for="title">Title:</label>
-        <input type="text" id="title" name="title" value="<?php echo isset($itinerary['Title']) ? $itinerary['Title'] : ''; ?>">
-        <label for="budget">Budget:</label>
-        <input type="text" id="budget" name="budget" value="<?php echo isset($itinerary['Budget']) ? $itinerary['Budget'] : ''; ?>">
-        <label for="country">Country:</label>
-        <input type="text" id="country" name="country" value="<?php echo isset($itinerary['Country']) ? $itinerary['Country'] : ''; ?>">
-        <label for="state">State:</label>
-        <input type="text" id="state" name="state" value="<?php echo isset($itinerary['State']) ? $itinerary['State'] : ''; ?>">
-        <label for="city">City:</label>
-        <input type="text" id="city" name="city" value="<?php echo isset($itinerary['City']) ? $itinerary['City'] : ''; ?>">
-        <label for="rating">Rating:</label>
-        <input type="text" id="rating" name="rating" value="<?php echo isset($itinerary['Rating']) ? $itinerary['Rating'] : ''; ?>">
-        <label for="no_of_travellers">Number of Travellers:</label>
-        <input type="text" id="no_of_travellers" name="no_of_travellers" value="<?php echo isset($itinerary['No_Of_Travellers']) ? $itinerary['No_Of_Travellers'] : ''; ?>">
-        <label for="food_preference">Food Preference:</label>
-        <input type="text" id="food_preference" name="food_preference" value="<?php echo isset($itinerary['FoodPreference']) ? $itinerary['FoodPreference'] : ''; ?>">
-        <label for="transport_id">Transport ID:</label>
-        <input type="text" id="transport_id" name="transport_id" value="<?php echo isset($itinerary['Transport_id']) ? $itinerary['Transport_id'] : ''; ?>">
-        <label for="hotel_id">Hotel ID:</label>
-        <input type="text" id="hotel_id" name="hotel_id" value="<?php echo isset($itinerary['Hotel_id']) ? $itinerary['Hotel_id'] : ''; ?>">
-        <label for="date_of_travel">Date of Travel:</label>
-        <input type="date" id="date_of_travel" name="date_of_travel" value="<?php echo isset($itinerary['Date_Of_Travel']) ? $itinerary['Date_Of_Travel'] : ''; ?>">
-        <input type="submit" name="submit" value="Update">
-    </form>
+    <div class="container">
+        <h2>Edit Itinerary</h2>
+        <form method="post" action="">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" value="<?php echo isset($itinerary['Title']) ? $itinerary['Title'] : ''; ?>">
+
+            <label for="budget">Budget:</label>
+            <input type="number" id="budget" name="budget" value="<?php echo isset($itinerary['Budget']) ? $itinerary['Budget'] : ''; ?>">
+
+            <label for="country">Country:</label>
+            <input type="text" id="country" name="country" value="<?php echo isset($itinerary['Country']) ? $itinerary['Country'] : ''; ?>">
+
+            <label for="state">State:</label>
+            <input type="text" id="state" name="state" value="<?php echo isset($itinerary['State']) ? $itinerary['State'] : ''; ?>">
+
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" value="<?php echo isset($itinerary['City']) ? $itinerary['City'] : ''; ?>">
+
+            <label for="rating">Rating:</label>
+            <input type="text" id="rating" name="rating" value="<?php echo isset($itinerary['Rating']) ? $itinerary['Rating'] : ''; ?>">
+
+            <label for="no_of_travellers">Number of Travellers:</label>
+            <input type="number" id="no_of_travellers" name="no_of_travellers" value="<?php echo isset($itinerary['No_Of_Travellers']) ? $itinerary['No_Of_Travellers'] : ''; ?>">
+
+            <label for="food_preference">Food Preference:</label>
+            <input type="text" id="food_preference" name="food_preference" value="<?php echo isset($itinerary['FoodPreference']) ? $itinerary['FoodPreference'] : ''; ?>">
+
+            <label for="transport_id">Transport ID:</label>
+            <input type="text" id="transport_id" name="transport_id" value="<?php echo isset($itinerary['Transport_id']) ? $itinerary['Transport_id'] : ''; ?>">
+
+            <label for="hotel_id">Hotel ID:</label>
+            <input type="text" id="hotel_id" name="hotel_id" value="<?php echo isset($itinerary['Hotel_id']) ? $itinerary['Hotel_id'] : ''; ?>">
+
+            <label for="date_of_travel">Date of Travel:</label>
+            <input type="date" id="date_of_travel" name="date_of_travel" value="<?php echo isset($itinerary['Date_Of_Travel']) ? $itinerary['Date_Of_Travel'] : ''; ?>">
+
+            <input type="submit" name="submit" value="Update">
+        </form>
+    </div>
 </body>
 </html>
