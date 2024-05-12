@@ -64,16 +64,17 @@ if(strlen($_SESSION['alogin'])==0) {
             <div class="agile-grids">    
                 <div class="agile-tables">
                     <div class="w3l-table-info">
+                        <!-- button to add users -->
+                        <a href="add_user.php" class="btn btn-primary">Add User</a>
                         <h2>Manage Users</h2>
                         <table id="table">
                             <thead>
                                 <tr>
                                     <th>#</th>
                                     <th>Name</th>
-                                    <th>Mobile No.</th>
                                     <th>Email Id</th>
                                     <th>RegDate</th>
-                                    <th>Updation Date</th>
+                                    <th>Address</th>
                                     <th>Action</th> <!-- Added Action column for edit and delete buttons -->
                                 </tr>
                             </thead>
@@ -90,13 +91,12 @@ if(strlen($_SESSION['alogin'])==0) {
                                 <tr>
                                     <td><?php echo htmlentities($cnt);?></td>
                                     <td><?php echo htmlentities($result->Name);?></td>
-                                    <td><?php echo htmlentities($result->PhoneNo);?></td>
                                     <td><?php echo htmlentities($result->Email_Id);?></td>
                                     <td><?php echo htmlentities($result->Dob);?></td>
-                                    <td><?php echo htmlentities($result->UpdationDate);?></td>
+                                    <td><?php echo htmlentities($result->Address);?></td>
                                     <td>
-                                        <a href="edit_user.php?id=<?php echo htmlentities($result->id);?>">Edit</a> <!-- Edit link -->
-                                        <a href="delete_user.php?id=<?php echo htmlentities($result->id);?>">Delete</a> <!-- Delete link -->
+                                        <a href="edit_user.php?id=<?php echo htmlentities($result->user_id);?>">Edit</a> <!-- Edit link -->
+                                        <a href="delete_user.php?id=<?php echo htmlentities($result->user_id);?>">Delete</a> <!-- Delete link -->
                                     </td>
                                 </tr>
                                 <?php 

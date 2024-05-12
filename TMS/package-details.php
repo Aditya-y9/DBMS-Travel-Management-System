@@ -118,19 +118,136 @@ foreach($results as $result)
 				<p><b>Package Location :</b> <?php echo htmlentities($result->PackageLocation);?></p>
 					<p><b>Features</b> <?php echo htmlentities($result->PackageFetures);?></p>
 					<div class="ban-bottom">
+						<script>
+							$(document).ready(function(){
+								$(".dropdown").hover(            
+									function() {
+										$('.dropdown-menu', this).not('.in .dropdown-menu').stop( true, true ).slideDown("400");
+										$(this).toggleClass('open');        
+									},
+									function() {
+										$('.dropdown-menu', this).not('.in .dropdown-menu').stop( true, true ).slideUp("400");
+										$(this).toggleClass('open');       
+									}
+								);
+							});
+
+							function validateDate() {
+								var fromDate = document.getElementById("datepicker").value;
+								var toDate = document.getElementById("datepicker1").value;
+								if(fromDate > toDate) {
+									alert("To date should be greater than From date");
+									document.getElementById("datepicker1").value = "";
+								}
+							}
+							
+						</script>
+
+						<style>
+							.bnr-right {
+								width: 50%;
+								float: left;
+							}
+							.date {
+								width: 100%;
+								padding: 10px;
+								margin: 10px 0;
+								border: 1px solid #ccc;
+								border-radius: 5px;
+							}
+
+							#datepicker, #datepicker1 {
+								width: 100%;
+								padding: 10px;
+								margin: 10px 0;
+								border: 1px solid #ccc;
+								border-radius: 5px;
+							}
+
+							.grand {
+								background: #f5f5f5;
+								padding: 10px;
+								margin: 10px 0;
+								border: 1px solid #ccc;
+								border-radius: 5px;
+							}
+
+							.grand h3 {
+								color: #000;
+								font-size: 24px;
+								font-weight: 600;
+							}
+
+							.grand p {
+								color: #000;
+								font-size: 18px;
+								font-weight: 400;
+							}
+
+							.inputLabel {
+								font-size: 18px;
+								font-weight: 400;
+								color: #000;
+							}
+
+							.special {
+								width: 100%;
+								padding: 10px;
+								margin: 10px 0;
+								border: 1px solid #ccc;
+								border-radius: 5px;
+							}
+
+							.sigi {
+								width: 100%;
+								padding: 10px;
+								margin: 10px 0;
+								border: 1px solid #ccc;
+								border-radius: 5px;
+							}
+
+							.btn-primary {
+								background: #337ab7;
+								color: #fff;
+								padding: 10px 20px;
+								border: none;
+								border-radius: 5px;
+								font-size: 18px;
+								font-weight: 600;
+							}
+
+							.btn-primary:hover {
+								background: #286090;
+							}
+
+							.view {
+								background: #337ab7;
+								color: #fff;
+								padding: 10px 20px;
+								border: none;
+								border-radius: 5px;
+								font-size: 18px;
+								font-weight: 600;
+								text-decoration: none;
+							}
+
+							.view:hover {
+								background: #286090;
+							}
+						</style>
 				<div class="bnr-right">
-				<label class="inputLabel">From</label>
-				<input class="date" id="datepicker" type="text" placeholder="dd-mm-yyyy"  name="fromdate" required="">
-			</div>
-			<div class="bnr-right">
-				<label class="inputLabel">To</label>
-				<input class="date" id="datepicker1" type="text" placeholder="dd-mm-yyyy" name="todate" required="">
-			</div>
+					<label class="inputLabel">From</label>
+					<input class="date" id="datepicker" type="text" placeholder="dd-mm-yyyy" name="fromdate" required="">
+				</div>
+				<div class="bnr-right">
+					<label class="inputLabel">To</label>
+					<input class="date" id="datepicker1" type="text" placeholder="dd-mm-yyyy" name="todate" required="" onchange="validateDate()">
+				</div>
 			</div>
 						<div class="clearfix"></div>
 				<div class="grand">
 					<p>Grand Total</p>
-					<h3>USD.800</h3>
+					<h3>₹<?php echo htmlentities($result->PackagePrice);?></h3>
 				</div>
 			</div>
 		<h3>Package Details</h3>

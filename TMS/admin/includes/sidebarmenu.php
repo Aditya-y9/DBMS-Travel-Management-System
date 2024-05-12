@@ -18,6 +18,8 @@
 									<li><a href="manage-bookings.php"><i class="fa fa-list" aria-hidden="true"></i>  <span>Manage Booking</span><div class="clearfix"></div></a></li>
 									 <!-- <li><a href="manageissues.php"><i class="fa fa-table"></i>  <span>Manage Issues</span><div class="clearfix"></div></a></li> -->
 									<li><a href="manage-enquires.php"><i class="fa fa-file-text-o" aria-hidden="true"></i>  <span>Manage Enquiries</span><div class="clearfix"></div></a></li>
+
+									<li><a href="create-itinerary.php"><i class="fa fa-file-text-o" aria-hidden="true"></i>  <span>Create Itinerary</span><div class="clearfix"></div></a></li>
 									<!-- <li><a href="manage-pages.php"><i class="fa fa-file-text-o" aria-hidden="true"></i>  <span>Manage Pages</span><div class="clearfix"></div></a></li> -->
 							     
 									

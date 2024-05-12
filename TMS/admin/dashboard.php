@@ -34,21 +34,21 @@ if(strlen($_SESSION['alogin']) == 0) {
     $totalRegularUsers = $rowTotalRegularUsers['totalRegularUsers'];
 
     // Fetch total bookings count
-    $sqlTotalBookings = "SELECT COUNT(*) AS totalBookings FROM dbms_project.itinerary";
+    $sqlTotalBookings = "SELECT COUNT(*) AS totalBookings FROM dbms.itinerary";
     $queryTotalBookings = $dbh->prepare($sqlTotalBookings);
     $queryTotalBookings->execute();
     $rowTotalBookings = $queryTotalBookings->fetch(PDO::FETCH_ASSOC);
     $totalBookings = $rowTotalBookings['totalBookings'];
 
     // Fetch total hotels count
-    $sqlTotalHotels = "SELECT COUNT(*) AS totalHotels FROM dbms_project.Hotel";
+    $sqlTotalHotels = "SELECT COUNT(*) AS totalHotels FROM dbms.Hotel";
     $queryTotalHotels = $dbh->prepare($sqlTotalHotels);
     $queryTotalHotels->execute();
     $rowTotalHotels = $queryTotalHotels->fetch(PDO::FETCH_ASSOC);
     $totalHotels = $rowTotalHotels['totalHotels'];
 
     // Fetch total tourist places count
-    $sqlTotalTouristPlaces = "SELECT COUNT(*) AS totalTouristPlaces FROM dbms_project.Tourist_Places";
+    $sqlTotalTouristPlaces = "SELECT COUNT(*) AS totalTouristPlaces FROM dbms.Tourist_Places";
     $queryTotalTouristPlaces = $dbh->prepare($sqlTotalTouristPlaces);
     $queryTotalTouristPlaces->execute();
     $rowTotalTouristPlaces = $queryTotalTouristPlaces->fetch(PDO::FETCH_ASSOC);
@@ -101,8 +101,22 @@ if(strlen($_SESSION['alogin']) == 0) {
                     <li class="breadcrumb-item"><a href="index.html">Home</a> <i class="fa fa-angle-right"></i></li>
                 </ol>
                 <!-- Widgets -->
+            
                 <div class="row">
-                    <!-- Widget 1: User Statistics -->
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        $("#executeScript").click(function(){
+            $.ajax({
+                url: "execute_script.php",
+            });
+        });
+    });
+    </script>
+</head>
+<body>
+
+<button id="executeScript" style="margin: 20px; padding: 10px; font-size: 16px; cursor: pointer; background-color: #4CAF50; color: white; border: none;"> Generate Power BI Report </button>
                     <div class="col-md-4">
                         <div class="card widget">
                             <div class="card-body">

@@ -54,7 +54,8 @@ if($query->rowCount() > 0) {
         <div class="rom-btm">
             <div class="col-md-3 room-left wow fadeInLeft animated" data-wow-delay=".5s">
                 <!-- You need to provide a way to display the image here -->
-            </div>
+                <img src="images/itinerary/<?php echo htmlentities($result->ItineraryImage) . '.jpg';?>" style="width: 250px; height: 200px;">
+                            </div>
             <div class="col-md-6 room-midle wow fadeInUp animated" data-wow-delay=".5s">
                 <h4>Itinerary Title: <?php echo htmlentities($result->Title);?></h4>
                 <p><b>Country:</b> <?php echo htmlentities($result->Country);?></p>

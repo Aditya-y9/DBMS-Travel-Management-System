@@ -1,34 +1,33 @@
-\<?php
+<?php
 // Include your database connection file here
 include('includes/config.php');
 
-if(isset($_POST['submit'])) {
-    // Retrieve form data
-    $userId = $_POST['user_id'];
-    $name = $_POST['name'];
-    $password = $_POST['password'];
-    $dob = $_POST['dob'];
-    $phoneNo = $_POST['phone_no'];
-    $email = $_POST['email'];
-    $address = $_POST['address'];
-
-    // Insert data into the User table
-    $sql = "INSERT INTO User (User_Id, Name, Password, Dob,Email_Id, Address) 
-            VALUES (:userId, :name, :password, :dob,:email, :address)";
-    $query = $dbh->prepare($sql);
-    $query->bindParam(':userId', $userId, PDO::PARAM_STR);
-    $query->bindParam(':name', $name, PDO::PARAM_STR);
-    $query->bindParam(':password', $password, PDO::PARAM_STR);
-    $query->bindParam(':dob', $dob, PDO::PARAM_STR);
-    $query->bindParam(':email', $email, PDO::PARAM_STR);
-    $query->bindParam(':address', $address, PDO::PARAM_STR);
-    
-    if($query->execute()) {
-        echo '<script>alert("Data inserted successfully!");</script>';
-    } else {
-        echo '<script>alert("Error inserting data!");</script>';
-    }
+if(isset($_POST['submit1']))
+{
+$fname=$_POST['fname'];
+$email=$_POST['email'];    
+$mobile=$_POST['mobileno'];
+$subject=$_POST['subject'];    
+$description=$_POST['description'];
+$sql="INSERT INTO  tblenquiry(FullName,EmailId,MobileNumber,Subject,Description) VALUES(:fname,:email,:mobile,:subject,:description)";
+$query = $dbh->prepare($sql);
+$query->bindParam(':fname',$fname,PDO::PARAM_STR);
+$query->bindParam(':email',$email,PDO::PARAM_STR);
+$query->bindParam(':mobile',$mobile,PDO::PARAM_STR);
+$query->bindParam(':subject',$subject,PDO::PARAM_STR);
+$query->bindParam(':description',$description,PDO::PARAM_STR);
+$query->execute();
+$lastInsertId = $dbh->lastInsertId();
+if($lastInsertId)
+{
+$msg="Enquiry  Successfully submited";
 }
+else 
+{
+$error="Something went wrong. Please try again";
+}
+    
+    }
 ?>
 
 <!DOCTYPE HTML>
@@ -64,28 +63,70 @@ if(isset($_POST['submit'])) {
 	</div>
 </div>
 <html>
-    <title>Add User</title>
+    <title>Enquiry Form</title>
 </head>
 <body>
-    <h2>Add User</h2>
-    <form method="post" style="margin-left: 30vw; align-content: center; justify-content: center; display: flex; flex-direction: column; width: 40vw;">
-        <label>User ID:</label><br>
-        <input type="text" name="user_id" required><br>
-        <label>Name:</label><br>
-        <input type="text" name="name" required><br>
-        <label>Password:</label><br>
-        <input type="password" name="password" required><br>
-        <label>Date of Birth:</label><br>
-        <input type="date" name="dob" required><br>
-        <label>Email:</label><br>
-        <input type="email" name="email" required><br>
-        <label>Address:</label><br>
-        <textarea name="address" rows="4" cols="50" required></textarea><br>
-        <input type="submit" name="submit" value="Submit">
-    </form>
-</body>
-</html>
-<?php include('includes/footer.php');?>
+    <style>
+        .contact {
+    padding: 4em 0;
+}
+.contact-form {
+    background: #f5f5f5;
+    padding: 2em;
+}
+.contact-form input[type="text"], .contact-form input[type="email"], .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    color: #999;
+    font-size: 14px;
+}
+
+.contact-form input[type="submit"] {
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.contact-form input[type="submit"]:hover {
+    background: #f00;
+}
+
+.contact-form textarea {
+    height: 100px;
+}
+
+    </style>
+<div class="contact" >
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 contact-form">
+                <h3>Enquiry</h3>
+                <form method="post">
+                    <input type="text" name="fname" placeholder="Your Name" required="">
+                    <input type="email" name="email" placeholder="Your Email" required="">
+                    <input type="text" name="mobileno" placeholder="Your Mobile Number" required="">
+                    <input type="text" name="subject" placeholder="Subject" required="">
+                    <textarea name="description" placeholder="Message..." required=""></textarea>
+                    <input type="submit" value="Submit" name="submit1">
+                </form>
+            </div>
+
+<div class="copy-right">
+<div class="container">
+    <img src="https://cdn-icons-png.flaticon.com/512/1642/1642263.png" style="width: 500px; height: 500px; margin: 0 auto; display: block;">
+
+    <div class="footer-social-icons wow fadeInDown animated animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">
+        <ul>
+            <li><a class="github" href="https://github.com/Aditya-y9"><span>GitHub</span></a></li>
+        </ul>
+    </div>
+    <p class="wow zoomIn animated animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn;">© 2024 DBMS 221080076 & 221081009</p>
+</div>
 <!-- signup -->
 <?php include('includes/signup.php');?>			
 <!-- //signu -->

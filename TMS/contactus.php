@@ -86,29 +86,103 @@ $error="Something went wrong. Please try again";
     <div class="container">
         <div class="row">
             <div class="col-md-6 contact-form">
-                <h3>Contact Us</h3>
-                <form method="post">
-                    <input type="text" name="fname" placeholder="Your Name" required="">
-                    <input type="email" name="email" placeholder="Your Email" required="">
-                    <input type="text" name="mobileno" placeholder="Your Mobile Number" required="">
-                    <input type="text" name="subject" placeholder="Subject" required="">
-                    <textarea name="description" placeholder="Message..." required=""></textarea>
-                    <input type="submit" value="Submit" name="submit1">
-                </form>
             </div>
-            <div class="col-md-6 contact-info">
-                <h3>Contact Information</h3>
+        </div>
+    </div>
+<div class="contact" style="margin-top: 10px;
+    margin-bottom: 50px;
+    padding: 50px;
+    background: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 50px;
+    background: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+        <div class="container">
+            <div class="col-md-6 contact-info" style="margin-top: 50px;">
+                <style>
+                    .address h4 {
+                        color: #ff4e00;
+                        font-size: 1.5em;
+                        margin-bottom: 1em;
+                    }
+                    .address p {
+                        font-size: 1em;
+                        color: #000;
+                        line-height: 1.8em;
+                    }
+                    .phone h4 {
+                        color: #ff4e00;
+                        font-size: 1.5em;
+                        margin-bottom: 1em;
+                    }
+                    .phone p {
+                        font-size: 1em;
+                        color: #000;
+                        line-height: 1.8em;
+                    }
+                    .email h4 {
+                        color: #ff4e00;
+                        font-size: 1.5em;
+                        margin-bottom: 1em;
+                    }
+                    .email p {
+                        font-size: 1em;
+                        color: #000;
+                        line-height: 1.8em;
+                    }
+                    .contact-info h3 {
+                        color: #ff4e00;
+                        font-size: 2em;
+                        margin-bottom: 1em;
+                    }
+                    .contact-info p {
+                        font-size: 1em;
+                        color: #000;
+                        line-height: 1.8em;
+                    }
+                    .contact-info {
+                        margin-top: 50px;
+                    }
+                    .address {
+                        margin-bottom: 50px;
+                    }
+                    .address p {
+                        font-size: 1em;
+                        color: #000;
+                        line-height: 1.8em;
+                    }
+                    .phone
+                    {
+                        margin-bottom: 50px;
+                    }
+                    .phone p {
+                        font-size: 1em;
+                        color: #000;
+                        line-height: 1.8em;
+                    }
+                </style>
+                <h3 style="color:lawngreen;">
+                    Contact Information</h3>
+                <div class="address">
+                    <h4>Name</h4>
+                    <p>Aditya Yedurkar</p>
+                    <p>Aditi Chhajed</p>
                 <div class="address">
                     <h4>Address</h4>
-                    <p>Your Company Address</p>
+                    <p>DBMS Lab @VJTI, Matunga</p>
                 </div>
                 <div class="phone">
                     <h4>Phone</h4>
-                    <p>+1234567890</p>
+                    <p>+91 123456789</p>
                 </div>
                 <div class="email">
                     <h4>Email</h4>
-                    <p>info@example.com</p>
+                    <p>amyedurkar_b22@it.vjti.ac.in</p>
+                    <p>abchhajed_b22@it.vjti.ac.in</p>
                 </div>
             </div>
         </div>

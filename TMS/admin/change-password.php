@@ -1,6 +1,7 @@
 <?php
 session_start();
-error_reporting(0);
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 include('includes/config.php');
 if(strlen($_SESSION['alogin'])==0)
 	{	
@@ -13,7 +14,7 @@ if(isset($_POST['submit']))
 $password=md5($_POST['password']);
 $newpassword=md5($_POST['newpassword']);
 $username=$_SESSION['alogin'];
-	$sql ="SELECT Password FROM admin WHERE UserName=:username and Password=:password";
+	$sql ="SELECT Password FROM admin WHERE Name=:username and Password=:password";
 $query= $dbh -> prepare($sql);
 $query-> bindParam(':username', $username, PDO::PARAM_STR);
 $query-> bindParam(':password', $password, PDO::PARAM_STR);
