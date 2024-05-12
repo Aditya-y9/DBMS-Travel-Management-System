@@ -88,6 +88,7 @@ if(strlen($_SESSION['alogin']) == 0) {
     </style>
 </head> 
 <body>
+
     <div class="page-container">
         <div class="left-content">
             <div class="mother-grid-inner">
@@ -111,6 +112,7 @@ if(strlen($_SESSION['alogin']) == 0) {
     </script>
 </head>
 <body>
+<iframe title="dbms powerbi report final[1]" width="965" height="541.25" style="margin-left: 17px" src="https://app.powerbi.com/reportEmbed?reportId=36dc69f1-9d8f-46f5-a370-7779c729eb3e&autoAuth=true&ctid=c8ff15f2-8577-4ae1-a5d4-866e8d537759" frameborder="0" allowFullScreen="true"></iframe>
 
 <button id="executeScript" style="margin: 20px; padding: 10px; font-size: 16px; cursor: pointer; background-color: #4CAF50; color: white; border: none;"> Generate Power BI Report </button>
                     <div class="col-md-4">
@@ -151,7 +153,7 @@ if(strlen($_SESSION['alogin']) == 0) {
                     </div>
                     <!-- Add more widgets as per your requirement -->
                 </div>
-                <iframe title="dbms" width="1140" height="541.25" src="https://app.powerbi.com/reportEmbed?reportId=19ae0ad8-b457-4989-8e44-868fd9096c7d&autoAuth=true&ctid=c8ff15f2-8577-4ae1-a5d4-866e8d537759" frameborder="0" allowFullScreen="true"></iframe>
+             
                 <!-- Add charts using Charts.js library -->
                 <canvas id="myChart"></canvas>
                 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

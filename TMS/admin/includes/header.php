@@ -2,8 +2,6 @@
 					<div class="logo-w3-agile">
 								<h1><a href="dashboard.php">Tourism Management System</a></h1>
 							</div>
-				
-						
 						<div class="profile_details w3l">		
 								<ul>
 									<li class="dropdown profile_details_drop">

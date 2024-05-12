@@ -60,13 +60,13 @@ if(isset($_POST['submit'])) {
         body {
             font-family: Arial, sans-serif;
             background-color: #f5f5f5;
-            margin: 0;
+            margin-left: 240px;
             padding: 0;
         }
 
         .container {
             max-width: 800px;
-            margin: 20px auto;
+            margin: 0px auto;
             padding: 20px;
             background-color: #fff;
             border-radius: 8px;
@@ -77,12 +77,13 @@ if(isset($_POST['submit'])) {
             margin-top: 0;
             padding-bottom: 10px;
             border-bottom: 1px solid #ccc;
+            font-size: 21px;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 20px;
+            margin-top: 0px;
         }
 
         th, td {
@@ -109,9 +110,16 @@ if(isset($_POST['submit'])) {
         }
     </style>
 </head>
+<div class="header-main">
+					<div class="logo-w3-agile" style="margin-top : 5px; margin-left:80px;">
+								<h1><a href="dashboard.php">Tourism Management System</a></h1>
+							</div>
 <body>
+
     <div class="container">
-        <h2>List and Edit Itinerary</h2>
+    
+        <h2>
+            List and Edit Itinerary</h2>
         <table>
             <thead>
                 <tr>
@@ -129,6 +137,7 @@ if(isset($_POST['submit'])) {
                         <!-- Add more table cells for other fields -->
                         <td>
                             <a href="edit_itinerary.php?id=<?php echo $itinerary['Itinerary_id']; ?>" class="edit-link">Edit</a>
+                            <a href="delete_itinerary.php?id=<?php echo $itinerary['Itinerary_id']; ?>" class="edit-link">Delete</a>
                             <!-- Add more actions like delete if needed -->
                         </td>
                     </tr>
@@ -136,5 +145,6 @@ if(isset($_POST['submit'])) {
             </tbody>
         </table>
     </div>
+    <?php include('includes/sidebarmenu.php'); ?>
 </body>
 </html>

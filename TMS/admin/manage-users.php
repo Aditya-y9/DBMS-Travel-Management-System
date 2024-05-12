@@ -86,10 +86,10 @@ if(strlen($_SESSION['alogin'])==0) {
                                 background-color: #4CAF50;
                             }
                             .btn-primary:hover {
-                                background-color: #45a049;
+                                background-color: green;
                             }
                             .btn-danger {
-                                background-color:lemonchiffon;
+                                background-color:#f6ff42;
                                 color: black;
                             }
                             .btn-danger:hover {
