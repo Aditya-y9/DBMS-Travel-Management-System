@@ -168,6 +168,7 @@ label.col-sm-2.control-label {
   margin: 0;
   padding: 0;
   margin-bottom: 20px;
+  text-decoration: none;
 }
 #menu li {
   position: relative;
@@ -276,6 +277,7 @@ ul#menu-academico-sub {
 }
 li#menu-academico{
  z-index: 999;
+ text-decoration: none;
 }
 .panel-body.ont {
     padding: 14px;
@@ -4503,7 +4505,6 @@ label.control-label {
 }
 .text a:hover{
 	color:#003b64;
-	text-decoration:underline;
 }
 .main h1 {
     font-size: 70px;

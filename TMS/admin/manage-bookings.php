@@ -62,6 +62,7 @@ if(isset($_POST['submit'])) {
             background-color: #f5f5f5;
             margin-left: 240px;
             padding: 0;
+            text-decoration: none;
         }
 
         .container {
@@ -112,7 +113,8 @@ if(isset($_POST['submit'])) {
 </head>
 <div class="header-main">
 					<div class="logo-w3-agile" style="margin-top : 5px; margin-left:80px;">
-								<h1><a href="dashboard.php">Tourism Management System</a></h1>
+								<h1><a href="dashboard.php" style="text-decoration: none;">
+                                Tourism Management System</a></h1>
 							</div>
 <body>
 
