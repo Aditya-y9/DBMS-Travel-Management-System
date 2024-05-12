@@ -1,5 +1,7 @@
 # Travel Management System with MariaDB and PHP
 
+
+
 ## Description
 This project is a simple travel management system that allows users to book itineraries and manage their bookings. The system is built using PHP and MariaDB.
 This project is a part of the course "Database Management Systems" at the Veermata Jijabai Technological Institute (VJTI), Mumbai.
