@@ -6,19 +6,15 @@ define('DB_USER', 'username');
 define('DB_PASS', 'password');
 define('DB_NAME', 'dbms');
 
-// Establish database connection.
-try {
-	$dbh = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME, DB_USER, DB_PASS, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
-	print("Connection successful");
-} catch (PDOException $e) {
-	exit("Error: " . $e->getMessage());
-}
+
 
 
 
 if(strlen($_SESSION['alogin']) == 0) {  
     header('location:index.php');
 } else {
+    // Establish database connection.
+	$dbh = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME, DB_USER, DB_PASS, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
     // Fetch total admins count
     $sqlTotalAdmins = "SELECT COUNT(*) AS totalAdmins FROM Admin";
     $queryTotalAdmins = $dbh->prepare($sqlTotalAdmins);
@@ -155,6 +151,7 @@ if(strlen($_SESSION['alogin']) == 0) {
                     </div>
                     <!-- Add more widgets as per your requirement -->
                 </div>
+                <iframe title="dbms" width="1140" height="541.25" src="https://app.powerbi.com/reportEmbed?reportId=19ae0ad8-b457-4989-8e44-868fd9096c7d&autoAuth=true&ctid=c8ff15f2-8577-4ae1-a5d4-866e8d537759" frameborder="0" allowFullScreen="true"></iframe>
                 <!-- Add charts using Charts.js library -->
                 <canvas id="myChart"></canvas>
                 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

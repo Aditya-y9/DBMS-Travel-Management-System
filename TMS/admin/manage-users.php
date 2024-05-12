@@ -65,7 +65,67 @@ if(strlen($_SESSION['alogin'])==0) {
                 <div class="agile-tables">
                     <div class="w3l-table-info">
                         <!-- button to add users -->
-                        <a href="add_user.php" class="btn btn-primary">Add User</a>
+                        <style>
+                            /* button shadows and separators */
+                            .btn {
+                                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+                                border: none;
+                                color: white;
+                                padding: 14px 28px;
+                                text-align: center;
+                                font-size: 16px;
+                                margin: 4px 2px;
+                                transition: 0.3s;
+                                display: inline-block;
+                                text-decoration: none;
+                                cursor: pointer;
+                                -webkit-border-before-width: thick;
+                                border-radius: 10px;
+                            }
+                            .btn-primary {
+                                background-color: #4CAF50;
+                            }
+                            .btn-primary:hover {
+                                background-color: #45a049;
+                            }
+                            .btn-danger {
+                                background-color:lemonchiffon;
+                                color: black;
+                            }
+                            .btn-danger:hover {
+                                background-color: #da190b;
+                                color:#f2f2f2;
+                            }
+
+                            /* table styles */
+                            table {
+                                border-collapse: collapse;
+                                width: 100%;
+                            }
+                            th, td {
+                                text-align: left;
+                                padding: 8px;
+                            }
+                            th {
+                                background-color: #4CAF50;
+                                color: white;
+                            }
+                            tr:nth-child(even) {
+                                background-color: #f2f2f2;
+                            }   
+
+                            /* table responsive styles */
+                            @media screen and (max-width: 600px) {
+                                table {
+                                    width: 100%;
+                                }
+                            }
+
+
+                        </style>
+                        <a href="add_user.php" class="btn btn-primary" style="margin-left: 0px; width:950px"
+                        >Add User</a>
+                        <a href="delete_user.php" class="btn btn-danger" style="margin-left: 0px;width:950px">Delete User By Name</a>
                         <h2>Manage Users</h2>
                         <table id="table">
                             <thead>
@@ -75,6 +135,7 @@ if(strlen($_SESSION['alogin'])==0) {
                                     <th>Email Id</th>
                                     <th>RegDate</th>
                                     <th>Address</th>
+                                    <th>User ID</th>
                                     <th>Action</th> <!-- Added Action column for edit and delete buttons -->
                                 </tr>
                             </thead>
@@ -95,8 +156,11 @@ if(strlen($_SESSION['alogin'])==0) {
                                     <td><?php echo htmlentities($result->Dob);?></td>
                                     <td><?php echo htmlentities($result->Address);?></td>
                                     <td>
-                                        <a href="edit_user.php?id=<?php echo htmlentities($result->user_id);?>">Edit</a> <!-- Edit link -->
-                                        <a href="delete_user.php?id=<?php echo htmlentities($result->user_id);?>">Delete</a> <!-- Delete link -->
+                                        <?php echo htmlentities($result->User_Id);?>
+                                    </td>
+                                    <td>
+                                        <a href="edit_user.php?id=<?php echo htmlentities($result->User_Id);?>">Edit</a> <!-- Edit link -->
+                                        <a href="delete_userid.php?id=<?php echo htmlentities($result->User_Id);?>">Delete</a> <!-- Delete link -->
                                     </td>
                                 </tr>
                                 <?php 
