@@ -56,6 +56,7 @@
             <li><a href="create-itinerary.php" style="text-decoration: none;"><i class="fa fa-file-text-o" aria-hidden="true"></i>  <span>Create Itinerary</span><div class="clearfix"></div></a></li>
             <!-- <li><a href="manage-pages.php"><i class="fa fa-file-text-o" aria-hidden="true"></i>  <span>Manage Pages</span><div class="clearfix"></div></a></li> -->
             <li><a href="manage-hotels.php" style="text-decoration: none;"><i class="fa fa-file-text-o" aria-hidden="true"></i>  <span>Manage Hotels</span><div class="clearfix"></div></a></li>
+            <li><a href="manage-transport.php" style="text-decoration: none;"><i class="fa fa-file-text-o" aria-hidden="true"></i>  <span>Manage Transport</span><div class="clearfix"></div></a></li>
         </ul>
     </div>
 </div>
