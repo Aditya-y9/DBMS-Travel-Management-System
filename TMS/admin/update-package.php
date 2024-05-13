@@ -48,18 +48,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql = "UPDATE tbltourpackages SET PackageName = '$package_name', PackageType = '$package_type', PackageLocation = '$package_location', PackagePrice = '$package_price', PackageFetures = '$package_features' WHERE PackageId = '$package_id'";
 
         if ($conn->query($sql) === TRUE) {
-            echo "Package updated successfully";
+            echo '<script>alert("Package updated successfully"); window.location.href = "manage-packages.php";</script>';
         } else {
-            echo "Error updating package: " . $conn->error;
+            echo '<script>alert("Error updating package: ' . $conn->error . '");</script>';
         }
     } elseif (isset($_POST['delete'])) {
         // Delete the package
         $sql_delete = "DELETE FROM tbltourpackages WHERE PackageId = '$package_id'";
         if ($conn->query($sql_delete) === TRUE) {
-            echo "Package deleted successfully";
+            echo '<script>alert("Package deleted successfully"); window.location.href = "manage-packages.php";</script>';
             // Redirect to a page after deletion if needed
         } else {
-            echo "Error deleting package: " . $conn->error;
+            echo '<script>alert("Error deleting package: ' . $conn->error . '");</script>';
         }
     }
 }
@@ -77,6 +77,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="grid-form">
         <div class="grid-form1">
             <h3>Update Package</h3>
+            <button>
+                <a href="manage-packages.php">Back</a>
+            </button>
             <div class="tab-content">
                 <div class="tab-pane active" id="horizontal-form">
                     <form class="form-horizontal" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"] . "?pid=" . $package_id);?>">

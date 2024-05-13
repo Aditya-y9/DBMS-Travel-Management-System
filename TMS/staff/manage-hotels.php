@@ -20,7 +20,7 @@ if(strlen($_SESSION['alogin'])==0) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>TMS | Admin manage Transport</title>
+<title>TMS | Admin manage Hotels</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -50,35 +50,6 @@ if(strlen($_SESSION['alogin'])==0) {
 <link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
 </head> 
 <body>
-    <style>
-        /* table styles */
-table {
-    border-collapse: collapse;
-    width: 500px;
-th, td {
-    text-align: left;
-    padding: 8px;
-}
-th {
-    background-color: #4CAF50;
-    color: white;
-}
-tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-/* table responsive styles */
-@media screen and (max-width: 600px) {
-    table {
-        width: 100%;
-    }
-    th, td {
-        width: auto;
-        display: block;
-    }
-}
-
-    </style>
    <div class="page-container">
        <div class="left-content">
            <div class="mother-grid-inner">
@@ -153,27 +124,28 @@ tr:nth-child(even) {
 
 
                         </style>
-                        <a href="add_transport.php" class="btn btn-primary" style="margin-left: 0px; width:950px"
+                        <a href="add_hotel.php" class="btn btn-primary" style="margin-left: 0px; width:950px"
                         >Add Hotel</a>
-                        <a href="delete_transport.php" class="btn btn-danger" style="margin-left: 0px;width:950px">Delete Transport By Name</a>
-                        <h2>Manage Transport</h2>
+                        <a href="delete_hotel.php" class="btn btn-danger" style="margin-left: 0px;width:950px">Delete Hotel By Name</a>
+                        <h2>Manage Hotels</h2>
                         <table id="table">
                             <thead>
                                 <tr>
                                     <th>#</th>
                                     <th>Name</th>
-                                    <th>Vehicle</th>
-                                    <th>Fare</th>
-                                    <th>
-                                        .
-                                    </th>
+                                    <th>No_Of_Rooms</th>
+                                    <th>Cost</th>
+                                    <th>Address</th>
+                                    <th>Rating</th>
                                     <th>
                                         Action
                                     </th>
+                                    <!-- Added Action column for edit and delete buttons -->
+                                </tr>
                             </thead>
                             <tbody>
                                 <?php 
-                                    $sql = "SELECT * FROM dbms.Transport_type";
+                                    $sql = "SELECT * FROM dbms.hotel";
                                     $query = $dbh->prepare($sql);
                                     $query->execute();
                                     $results=$query->fetchAll(PDO::FETCH_OBJ);
@@ -183,15 +155,16 @@ tr:nth-child(even) {
                                 ?>      
                                 <tr>
                                     <td><?php echo htmlentities($cnt);?></td>
-                                    <td><?php echo htmlentities($result->NameOfProvider);?></td>
-                                    <td><?php echo htmlentities($result->TypeOfVehicle);?></td>
-                                    <td><?php echo htmlentities($result->Fare);?></td>
+                                    <td><?php echo htmlentities($result->Name);?></td>
+                                    <td><?php echo htmlentities($result->No_Of_Rooms);?></td>
+                                    <td><?php echo htmlentities($result->Cost);?></td>
+                                    <td><?php echo htmlentities($result->Address);?></td>
                                     <td>
-                                        Action
+                                        <?php echo htmlentities($result->Rating);?>
                                     </td>
                                     <td>
-                                        <a href="edit-transport.php?id=<?php echo htmlentities($result->Transport_id);?>">Edit</a> <!-- Edit link -->
-                                        <a href="delete_transportid.php?id=<?php echo htmlentities($result->Transport_id);?>">Delete</a> <!-- Delete link -->
+                                        <a href="edit_hotel.php?id=<?php echo htmlentities($result->Hotel_id);?>">Edit</a> <!-- Edit link -->
+                                        <a href="delete_hotelid.php?id=<?php echo htmlentities($result->Hotel_id);?>">Delete</a> <!-- Delete link -->
                                     </td>
                                 </tr>
                                 <?php 

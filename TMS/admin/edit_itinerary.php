@@ -20,6 +20,9 @@ if(empty($_SESSION['alogin'])) {
     exit();
 }
 
+// Initialize feedback messages
+$success_message = $error_message = '';
+
 // Fetch itinerary details from the database based on title
 $id = $_GET['id'];
 $sql = "SELECT * FROM Itinerary WHERE Itinerary_id = :id";
@@ -47,57 +50,46 @@ if(!$itinerary) {
 
 // Handle form submission for editing itinerary
 if(isset($_POST['submit'])) {
-    // Process form submission...
-    $title = $_POST['title'];
-    $budget = $_POST['budget'];
-    $country = $_POST['country'];
-    $state = $_POST['state'];
-    $city = $_POST['city'];
-    $rating = $_POST['rating'];
-    $no_of_travellers = $_POST['no_of_travellers'];
-    $food_preference = $_POST['food_preference'];
-    $transport_id = $_POST['transport_id'];
-    $hotel_id = $_POST['hotel_id'];
-    $date_of_travel = $_POST['date_of_travel'];
+    try {
+        // Process form submission...
+        $title = $_POST['title'];
+        $budget = $_POST['budget'];
+        $country = $_POST['country'];
+        $state = $_POST['state'];
+        $city = $_POST['city'];
+        $rating = $_POST['rating'];
+        $no_of_travellers = $_POST['no_of_travellers'];
+        $food_preference = $_POST['food_preference'];
+        $transport_id = $_POST['transport_id'];
+        $hotel_id = $_POST['hotel_id'];
+        $date_of_travel = $_POST['date_of_travel'];
 
-    // Update the itinerary details in the database
-    $sql = "UPDATE Itinerary SET Title = :title, Budget = :budget, Country = :country, State = :state, City = :city, Rating = :rating, No_Of_Travellers = :no_of_travellers, FoodPreference = :food_preference, Transport_id = :transport_id, Hotel_id = :hotel_id , Date_Of_Travel = :date_of_travel WHERE Itinerary_id = :id";
-    $query = $dbh->prepare($sql);
-    $query->bindParam(':title', $title, PDO::PARAM_STR);
-    $query->bindParam(':budget', $budget, PDO::PARAM_INT);
-    $query->bindParam(':country', $country, PDO::PARAM_STR);
-    $query->bindParam(':state', $state, PDO::PARAM_STR);
-    $query->bindParam(':city', $city, PDO::PARAM_STR);
-    $query->bindParam(':rating', $rating, PDO::PARAM_STR);
-    $query->bindParam(':no_of_travellers', $no_of_travellers, PDO::PARAM_INT);
-    $query->bindParam(':food_preference', $food_preference, PDO::PARAM_STR);
-    $query->bindParam(':transport_id', $transport_id, PDO::PARAM_INT);
-    $query->bindParam(':hotel_id', $hotel_id, PDO::PARAM_INT);
-    $query->bindParam(':date_of_travel', $date_of_travel, PDO::PARAM_STR);
-    $query->bindParam(':id', $id, PDO::PARAM_INT);
-    $query->execute();
+        // Update the itinerary details in the database
+        $sql = "UPDATE Itinerary SET Title = :title, Budget = CAST(:budget AS int), Country = :country, State = :state, City = :city, Rating = CAST(:rating AS float), No_Of_Travellers = CAST(:no_of_travellers AS int), FoodPreference = :food_preference, Transport_id = :transport_id, Hotel_id = :hotel_id , Date_Of_Travel = :date_of_travel WHERE Title = :title";
 
-    $query = $dbh->prepare($sql);
+        $query = $dbh->prepare($sql);
 
-    $query->bindParam(':title', $title, PDO::PARAM_STR);
-    $query->bindParam(':budget', $budget, PDO::PARAM_STR); // Bind as string
-    $query->bindParam(':country', $country, PDO::PARAM_STR);
-    $query->bindParam(':state', $state, PDO::PARAM_STR);
-    $query->bindParam(':city', $city, PDO::PARAM_STR);
-    $query->bindParam(':rating', $rating, PDO::PARAM_STR); // Bind as string
-    $query->bindParam(':no_of_travellers', $no_of_travellers, PDO::PARAM_STR); // Bind as string
-    $query->bindParam(':food_preference', $food_preference, PDO::PARAM_STR);
-    $query->bindParam(':transport_id', $transport_id, PDO::PARAM_STR); // Bind as string
-    $query->bindParam(':hotel_id', $hotel_id, PDO::PARAM_STR); // Bind as string
-    $query->bindParam(':date_of_travel', $date_of_travel, PDO::PARAM_STR);
-    
-    $query->execute();
+        $query->bindParam(':title', $title, PDO::PARAM_STR);
+        $query->bindParam(':budget', $budget, PDO::PARAM_STR); // Bind as string
+        $query->bindParam(':country', $country, PDO::PARAM_STR);
+        $query->bindParam(':state', $state, PDO::PARAM_STR);
+        $query->bindParam(':city', $city, PDO::PARAM_STR);
+        $query->bindParam(':rating', $rating, PDO::PARAM_STR); // Bind as string
+        $query->bindParam(':no_of_travellers', $no_of_travellers, PDO::PARAM_STR); // Bind as string
+        $query->bindParam(':food_preference', $food_preference, PDO::PARAM_STR);
+        $query->bindParam(':transport_id', $transport_id, PDO::PARAM_STR); // Bind as string
+        $query->bindParam(':hotel_id', $hotel_id, PDO::PARAM_STR); // Bind as string
+        $query->bindParam(':date_of_travel', $date_of_travel, PDO::PARAM_STR);
+        
+        $query->execute();
 
-    // Redirect to the same page after editing
-    header('location:manage-bookings.php');
-    exit();
+        // Set success message
+        $success_message = 'Itinerary updated successfully';
+    } catch (PDOException $e) {
+        // Set error message
+        $error_message = 'Error: ' . $e->getMessage();
+    }
 }
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -154,11 +146,34 @@ if(isset($_POST['submit'])) {
         input[type="submit"]:hover {
             background-color: #45a049;
         }
+
+        .success-message {
+            color: green;
+        }
+
+        .error-message {
+            color: red;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h2>Edit Itinerary</h2>
+        <!-- Display success message if available -->
+        <?php if(!empty($success_message)): ?>
+            <p class="success-message"><?php echo $success_message; ?></p>
+            <script>
+                alert("<?php echo $success_message; ?>");
+                window.location.href = 'manage-bookings.php';
+            </script>
+        <?php endif; ?>
+        <!-- Display error message if available -->
+        <?php if(!empty($error_message)): ?>
+            <p class="error-message"><?php echo $error_message; ?></p>
+            <script>
+                alert("<?php echo $error_message; ?>");
+            </script>
+        <?php endif; ?>
         <form method="post" action="">
             <label for="title">Title:</label>
             <input type="text" id="title" name="title" value="<?php echo isset($itinerary['Title']) ? $itinerary['Title'] : ''; ?>">

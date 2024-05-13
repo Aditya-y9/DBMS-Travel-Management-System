@@ -137,3 +137,20 @@ SET SQL_MODE=@OLDTMP_SQL_MODE;
 /*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
+
+-- Create a new user
+CREATE USER 'customer'@'MSHOME:3304' IDENTIFIED BY 'password';
+
+
+GRANT SELECT ON dbms.admin TO 'customer'@'MSHOME:3304';
+GRANT SELECT ON dbms.bill TO 'customer'@'MSHOME:3304';
+GRANT SELECT ON dbms.hotel TO 'customer'@'MSHOME:3304';
+GRANT SELECT ON dbms.itinerary TO 'customer'@'MSHOME:3304';
+GRANT SELECT ON dbms.tblenquiry TO 'customer'@'MSHOME:3304';
+GRANT SELECT ON dbms.tbltourpackages TO 'customer'@'MSHOME:3304';
+GRANT SELECT ON dbms.tourist_places TO 'customer'@'MSHOME:3304';
+GRANT SELECT ON dbms.transport_type TO 'customer'@'MSHOME:3304';
+GRANT SELECT ON dbms.user TO 'customer'@'MSHOME:3304';
+GRANT SELECT ON dbms.user_account TO 'customer'@'MSHOME:3304';
+GRANT SELECT ON dbms.user_preference TO 'customer'@'MSHOME:3304';
+
