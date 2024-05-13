@@ -75,6 +75,8 @@
 								<li><a href="privacy.php">Privacy Policy</a></li>
 								<li><a href="contactus.php">Contact Us</a></li>
 								<li><a href="dashboard.php">User Dashboard</a></li>
+								<li><a href="hotels.php">View Hotels</a></li>
+								<li><a href="transport.php">View Transport</a></li>
 								<?php if($_SESSION['login'])
 {?>
 								<li>Need Help?<a href="#" data-toggle="modal" data-target="#myModal3"> / Write Us </a>  </li>

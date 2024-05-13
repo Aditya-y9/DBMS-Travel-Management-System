@@ -62,6 +62,7 @@ if (isset($_POST['login'])) {
 <!-- //lined-icons -->
 </head> 
 <body>
+
     <div class="main-wthree">
     <div class="container">
     <div class="sin-w3-agile">
@@ -84,7 +85,21 @@ if (isset($_POST['login'])) {
             <div class="clearfix"></div>
         </form>
                 <div class="back">
-                    <a href="../index.php">Back to home</a>
+                    <button class="btn btn-primary" type="button" style="background-color: white;
+                    border: none;
+                    margin-top: -50px;
+                    color: purple;
+                    text-align: center;
+                    font-size: 16px;
+                    opacity: 0.6;
+                    transition: 0.3s;
+                    cursor: pointer;
+                    border-radius: 15px;
+                    text-decoration: none;
+                    display:flex;
+                    text-transform: uppercase;">
+                        <a href="../index.php" style="margin-top: 0px;">Back to Home</a>
+                    </button>
                 </div>
                 
     </div>

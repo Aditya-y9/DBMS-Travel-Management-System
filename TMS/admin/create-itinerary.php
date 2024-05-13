@@ -1,4 +1,7 @@
 <?php
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);   
 // Include config file
 define('DB_SERVER', 'MSHOME:3304');
 define('DB_USERNAME', 'username');
@@ -9,8 +12,8 @@ $link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
 
  
 // Define variables and initialize with empty values
-$itinerary_title = $itinerary_budget = $country = $state = $city = $rating = $no_of_travellers = $food_preference  = $date_of_travel = $itinerary_image = "";
-$itinerary_title_err = $itinerary_budget_err = $country_err = $state_err = $city_err = $rating_err = $no_of_travellers_err = $food_preference_err  = $date_of_travel_err = $itinerary_image_err = "";
+$itinerary_title = $itinerary_budget = $country = $state = $city = $rating = $no_of_travellers = $food_preference  = $date_of_travel = $ItineraryImage = "";
+$itinerary_title_err = $itinerary_budget_err = $country_err = $state_err = $city_err = $rating_err = $no_of_travellers_err = $food_preference_err  = $date_of_travel_err = $ItineraryImage_err = "";
  
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -88,21 +91,23 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 
     // Validate itinerary image
-    $input_itinerary_image = trim($_POST["itinerary_image"]);
-    if(empty($input_itinerary_image)){
-        $itinerary_image_err = "Please enter the itinerary image.";     
+    $input_ItineraryImage = trim($_POST["ItineraryImage"]);
+    $pimage=$_FILES["ItineraryImage"]["name"];
+    move_uploaded_file($_FILES["ItineraryImage"]["tmp_name"],"pacakgeimages/".$_FILES["ItineraryImage"]["name"]);
+    if(empty($input_ItineraryImage)){
+        $ItineraryImage_err = "Please enter the itinerary image.";     
     } else{
-        $itinerary_image = $input_itinerary_image;
+        $ItineraryImage = $input_ItineraryImage;
     }
     
     // Check input errors before inserting in database
-    if(empty($itinerary_title_err) && empty($itinerary_budget_err) && empty($country_err) && empty($state_err) && empty($city_err) && empty($rating_err) && empty($no_of_travellers_err) && empty($food_preference_err) && empty($date_of_travel_err) && empty($itinerary_image_err)){
+    if(empty($itinerary_title_err) && empty($itinerary_budget_err) && empty($country_err) && empty($state_err) && empty($city_err) && empty($rating_err) && empty($no_of_travellers_err) && empty($food_preference_err) && empty($date_of_travel_err) && empty($ItineraryImage_err)){
         // Prepare an insert statement
         $sql = "INSERT INTO itinerary (Title, Budget, Country, State, City, Rating, No_Of_Travellers, FoodPreference, Date_Of_Travel, ItineraryImage) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
          
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "sissssisss", $itinerary_title, $itinerary_budget, $country, $state, $city, $rating, $no_of_travellers, $food_preference, $date_of_travel, $itinerary_image);
+            mysqli_stmt_bind_param($stmt, "sissssisss", $itinerary_title, $itinerary_budget, $country, $state, $city, $rating, $no_of_travellers, $food_preference, $date_of_travel, $ItineraryImage);
             
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
@@ -200,10 +205,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             <span class="help-block"><?php echo $date_of_travel_err; ?></span>
                         </div>
 
-                        <div class="form-group <?php echo (!empty($itinerary_image_err)) ? 'has-error' : ''; ?>">
+                        <div class="form-group <?php echo (!empty($ItineraryImage_err)) ? 'has-error' : ''; ?>">
                             <label>Itinerary Image</label>
-                            <input type="text" name="itinerary_image" class="form-control" value="<?php echo $itinerary_image; ?>">
-                            <span class="help-block"><?php echo $itinerary_image_err; ?></span>
+                            <input type="file" name="ItineraryImage" class="form-control" value="<?php echo $ItineraryImage; ?>">
+                            <span class="help-block"><?php echo $ItineraryImage_err; ?></span>
                         </div>
                         
                         <input type="submit" class="btn btn-primary" value="Submit">
