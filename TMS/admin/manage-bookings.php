@@ -117,7 +117,7 @@ if(isset($_POST['submit'])) {
                                 Tourism Management System</a></h1>
 							</div>
 <body>
-
+<?php include('includes/sidebarmenu.php'); ?>
     <div class="container">
     
         <h2>
@@ -144,9 +144,11 @@ if(isset($_POST['submit'])) {
                         </td>
                     </tr>
                 <?php } ?>
+
             </tbody>
         </table>
+
     </div>
-    <?php include('includes/sidebarmenu.php'); ?>
+
 </body>
 </html>

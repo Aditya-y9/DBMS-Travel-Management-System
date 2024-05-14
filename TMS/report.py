@@ -1,6 +1,6 @@
 import os
 
-path_to_report = r"C:\Users\MSHOME\Documents\DBMS.pbix"
+path_to_report = r"D:\Downloads\dbms powerbi report final[1].pbix"
 
 
 if os.path.exists(path_to_report):
