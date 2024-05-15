@@ -23,11 +23,10 @@
 		<ul class="tp-hd-lft wow fadeInLeft animated" data-wow-delay=".5s">
 			<li class="hm"><a href="index.php"><i class="fa fa-home"></i></a></li>
 				<li class="hm"><a href="admin/index.php">Admin Login</a></li>
-				<li class="hm" ><a href="staff/index.php">Staff Login</a></li>
 		</ul>
 		<ul class="tp-hd-rgt wow fadeInRight animated" data-wow-delay=".5s"> 
 			<li class="tol">Toll-Free Number : 1800-1800 </li>				
-			<li class="sig"><a href="./includes/signup.php"  > Sign Up</a></li>
+			<li class="sig"><a href="add_user.php"  > Sign Up</a></li>
 			<li class="sigi"><a href="#">/ Sign In</a></li>
         </ul>
 		<div class="clearfix"></div>
@@ -39,7 +38,7 @@
 <div class="header">
 	<div class="container">
 		<div class="logo wow fadeInDown animated" data-wow-delay=".5s">
-			<a href="index.php">ADITS <span>Travel Management Portal</span></a>	
+			<a href="index.php">Dream Holidays <span>Travel Management Portal</span></a>	
 		</div>
 	
 		<div class="lock fadeInDown animated" data-wow-delay=".5s"> 

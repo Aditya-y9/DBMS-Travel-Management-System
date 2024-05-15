@@ -99,8 +99,6 @@ if(isset($_POST['delete'])) {
     
 
     </div>
- <!-- Sidebar Menu -->
- <?php include('includes/sidebarmenu.php');?>
     <div class="clearfix"></div>
     <script>
     var toggle = true;

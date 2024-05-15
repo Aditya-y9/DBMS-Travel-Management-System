@@ -2,34 +2,32 @@
 session_start();
 error_reporting(0);
 include('includes/config.php');
-if(isset($_POST['submit2']))
-{
-$pid=intval($_GET['pkgid']);
-$useremail=$_SESSION['login'];
-$fromdate=$_POST['fromdate'];
-$todate=$_POST['todate'];
-$comment=$_POST['comment'];
-$status=0;
-$sql="INSERT INTO tblbooking(PackageId,UserEmail,FromDate,ToDate,Comment,status) VALUES(:pid,:useremail,:fromdate,:todate,:comment,:status)";
-$query = $dbh->prepare($sql);
-$query->bindParam(':pid',$pid,PDO::PARAM_STR);
-$query->bindParam(':useremail',$useremail,PDO::PARAM_STR);
-$query->bindParam(':fromdate',$fromdate,PDO::PARAM_STR);
-$query->bindParam(':todate',$todate,PDO::PARAM_STR);
-$query->bindParam(':comment',$comment,PDO::PARAM_STR);
-$query->bindParam(':status',$status,PDO::PARAM_STR);
-$query->execute();
-$lastInsertId = $dbh->lastInsertId();
-if($lastInsertId)
-{
-$msg="Booked Successfully";
-}
-else 
-{
-$error="Something went wrong. Please try again";
+
+
+if(isset($_POST['submit2'])) {
+    // Assuming you have processed the form data and obtained the dates and comments
+	$pkgid = $_GET['pkgid'];
+	$user_id = $_GET['user_id'];
+    $fromDate = $_POST['fromdate'];
+    $toDate = $_POST['todate'];
+    $comment = $_POST['comment'];
+    $totalBill = 100; // Replace 100 with your actual calculated total
+
+	print_r($pkgid);
+	print_r($user_id);
+	print_r($fromDate);
+	print_r($toDate);
+	print_r($comment);
+	print_r($totalBill);
+	
+
+    // Redirect to bill.php with pkgid, user_id, dates, comments, and total
+	header("Location: bill.php?pkgid=$pkgid&user_id=$user_id&fromdate=$fromDate&todate=$toDate&comment=$comment&total=$totalBill");
+
+
+    exit();
 }
 
-}
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -263,22 +261,19 @@ foreach($results as $result)
 						<label class="inputLabel">Comment</label>
 						<input class="special" type="text" name="comment" required="">
 					</li>
-					<?php if($_SESSION['login'])
-					{?>
+					<?php 
+					?>
 						<li class="spe" align="center">
 					<button type="submit" name="submit2" class="btn-primary btn">Book</button>
 						</li>
-						<?php } else {?>
-							<li class="sigi" align="center" style="margin-top: 1%">
-							<a href="#" data-toggle="modal" data-target="#myModal4" class="btn-primary btn" > Book</a></li>
-							<?php } ?>
+						<?php }} ?>
 					<div class="clearfix"></div>
 				</ul>
 			</div>
 			
 		</div>
 		</form>
-<?php }} ?>
+
 
 
 	</div>
@@ -289,8 +284,7 @@ foreach($results as $result)
 <!-- signup -->
 <?php include('includes/signup.php');?>			
 <!-- //signu -->
-<!-- signin -->
-<?php include('includes/signin.php');?>			
+<!-- signin -->		
 <!-- //signin -->
 <!-- write us -->
 <?php include('includes/write-us.php');?>

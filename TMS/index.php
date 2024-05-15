@@ -1,185 +1,188 @@
 <?php
 session_start();
-error_reporting(0);
-include('includes/config.php');
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+// DB credentials.
+define('DB_HOST', 'MSHOME:3304');
+define('DB_USER', 'username');
+define('DB_PASS', 'password');
+define('DB_NAME', 'dbms');
+
+// Establish database connection.
+try {
+    $dbh = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME, DB_USER, DB_PASS, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
+    // print("Connection successful"); // You can uncomment this line for testing purposes
+} catch (PDOException $e) {
+    exit("Error: " . $e->getMessage());
+}
+
+if (isset($_POST['login'])) {
+    $uname = $_POST['username']; // Get the username from the form
+    $password = $_POST['password']; // Get the password from the form
+    
+    // Query the database to check if the provided credentials match
+    $stmt = $dbh->prepare("SELECT * FROM user WHERE name = :username AND password = :password");
+    $stmt->bindParam(':username', $uname);
+    $stmt->bindParam(':password', $password);
+    $stmt->execute();
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if (!$user) {
+        $errorMessage = "Invalid username or password.";
+    }
+
+    
+    
+
+    if ($user) {
+        $_SESSION['alogin'] = $uname;
+        $user_id = $user['User_Id']; // Get the user ID from the fetched data
+        echo "<script type='text/javascript'> document.location = 'home.php?id=$user_id'; </script>";
+    } else {
+        echo "Invalid username or password.";
+    }
+}
 ?>
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>ADITS | Tourism Management System</title>
+<title>TMS | Admin Sign in</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-<script type="applijewelleryion/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Bootstrap Core CSS -->
+<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+<!-- Custom CSS -->
 <link href="css/style.css" rel='stylesheet' type='text/css' />
-<link href='//fonts.googleapis.com/css?family=Open+Sans:400,700,600' rel='stylesheet' type='text/css'>
-<link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
-<link href='//fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="css/morris.css" type="text/css"/>
+<!-- Graph CSS -->
 <link href="css/font-awesome.css" rel="stylesheet">
-<!-- Custom Theme files -->
-<script src="js/jquery-1.12.0.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<!--animate-->
-<link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
-<script src="js/wow.min.js"></script>
-	<script>
-		 new WOW().init();
-	</script>
-<!--//end-animate-->
-</head>
-<body>
-<?php include('includes/header.php');?>
-<div class="banner">
-	<div class="container">
-		<h1 class="wow zoomIn animated animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn;"> ADITS - Tourism Management System</h1>
-	</div>
-</div>
-
-
-<!--- rupes ---->
-<div class="container">
-	<div class="rupes">
-		<div class="col-md-4 rupes-left wow fadeInDown animated animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">
-			<div class="rup-left">
-				<a href="offers.html"><i class="fa fa-inr fa-5x"></i></a>
-			</div>
-			<div class="rup-rgt">
-				<h3>UP TO USD. 50 OFF</h3>
-				<h4><a href="offers.html">TRAVEL SMART</a></h4>
-				
-			</div>
-				<div class="clearfix"></div>
-		</div>
-		<div class="col-md-4 rupes-left wow fadeInDown animated animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">
-			<div class="rup-left">
-				<a href="offers.html"><i class="fa fa-h-square"></i></a>
-			</div>
-			<div class="rup-rgt">
-				<h3>UP TO 70% OFF</h3>
-				<h4><a href="offers.html">ON HOTELS ACROSS WORLD</a></h4>
-				
-			</div>
-				<div class="clearfix"></div>
-		</div>
-		<div class="col-md-4 rupes-left wow fadeInDown animated animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">
-			<div class="rup-left">
-				<a href="offers.html"><i class="fa fa-user"></i></a>
-			</div>
-			<div class="rup-rgt">
-				<h3>FLAT <div class="fa fa-inr"></div> 500 OFF</h3>
-				<h4><a href="offers.html">SPECIAL OFFER</a></h4>
-			
-			</div>
-				<div class="clearfix"></div>
-		</div>
-	
-	</div>
-</div>
-<!--- /rupes ---->
-
-
-
-
-<!---holiday---->
-<div class="container">
-	<div class="holiday">
-	
-
-
-
-	
-	<h3>Package List</h3>
-
-					
-<?php $sql = "SELECT * from tbltourpackages order by rand() limit 4";
-$query = $dbh->prepare($sql);
-$query->execute();
-$results=$query->fetchAll(PDO::FETCH_OBJ);
-$cnt=1;
-if($query->rowCount() > 0)
-{
-foreach($results as $result)
-{	?>
-			<div class="rom-btm">
-				<div class="col-md-3 room-left wow fadeInLeft animated" data-wow-delay=".5s">
-					<img src="admin/pacakgeimages/<?php echo htmlentities($result->PackageImage);?>" class="img-responsive" alt="">
-				</div>
-				<div class="col-md-6 room-midle wow fadeInUp animated" data-wow-delay=".5s">
-					<h4>Package Name: <?php echo htmlentities($result->PackageName);?></h4>
-					<h6>Package Type : <?php echo htmlentities($result->PackageType);?></h6>
-					<p><b>Package Location :</b> <?php echo htmlentities($result->PackageLocation);?></p>
-					<p><b>Features</b> <?php echo htmlentities($result->PackageFetures);?></p>
-				</div>
-				<div class="col-md-3 room-right wow fadeInRight animated" data-wow-delay=".5s">
-					<h5>₹ <?php echo htmlentities($result->PackagePrice);?></h5>
-					<a href="package-details.php?pkgid=<?php echo htmlentities($result->PackageId);?>" class="view">Details</a>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-
-<?php }} ?>
-			
-		
-<div><a href="package-list.php" class="view">View More Packages</a></div>
-</div>
-			<div class="clearfix"></div>
-	</div>
-
-
-
-<div class="homepage">
-	<div class="container">
-		<div class="col-md-12 homepage-left">
-			<img src="./images/15.jpg" alt="Image Placeholder" class="img-responsive" style="margin: 0 auto;text-align: center; justify-content: center;">
-			<h3>Welcome to our Travel Website</h3>
-			<p>Discover amazing destinations, book your dream vacation, and create unforgettable memories.</p>
-			<!-- Add more content here -->
-			<p>Explore our exclusive travel packages and find the perfect one for your next adventure.</p>
-			<a href="package-details.php?pkgid=<?php echo htmlentities($result->PackageId);?>" class="btn btn-primary">View Packages</a>
-		</div>
-		<div class="clearfix"></div>
-	</div>
-</div>
+<link rel="stylesheet" href="css/jquery-ui.css"> 
+<!-- jQuery -->
+<script src="js/jquery-2.1.4.min.js"></script>
+<!-- //jQuery -->
+<link href='//fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'/>
+<link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<!-- lined-icons -->
+<link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
+<!-- //lined-icons -->
 <style>
-.homepage {
-	background-color: #f5f5f5;
-	padding: 50px 0;
-}
+    .error-message {
+        color: #dc3545;
+        font-size: 24px;
+        text-align: center;
+        margin-top: 20px;
+    }
 
-.homepage-left {
-	text-align: center;
-}
+    /* Modal styles */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.4);
+    }
 
-.homepage-left img {
-	margin-bottom: 20px;
-}
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+    }
 
-.homepage-left h3 {
-	font-size: 28px;
-	margin-bottom: 10px;
-}
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
 
-.homepage-left p {
-	font-size: 16px;
-	margin-bottom: 20px;
-}
-
-.homepage-left .btn {
-	font-size: 18px;
-	padding: 10px 20px;
-}
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
 </style>
+</head> 
+<body>
 
-<?php include('includes/footer.php');?>
-<!-- signup -->
-<?php include('includes/signup.php');?>			
-<!-- //signu -->
-<!-- signin -->
-<?php include('includes/signin.php');?>			
-<!-- //signin -->
-<!-- write us -->
-<?php include('includes/write-us.php');?>			
-<!-- //write us -->
+    <div class="main-wthree">
+    <div class="container">
+    <div class="sin-w3-agile">
+        <h2>Sign In</h2>
+        <form method="post">
+            <div class="username">
+                <span class="username">Username:</span>
+                <input type="text" name="username" class="name" placeholder="" required="">
+                <div class="clearfix"></div>
+            </div>
+            <div class="password-agileits">
+                <span class="username">Password:</span>
+                <input type="password" name="password" class="password" placeholder="" required="">
+                <div class="clearfix"></div>
+            </div>
+            
+            <div class="login-w3">
+                    <input type="submit" class="login" name="login" value="Sign In">
+            </div>
+            <div class="clearfix"></div>
+        </form>
+                <div class="back">
+                    <button class="btn btn-primary" type="button" style="background-color: white;
+                    border: none;
+                    margin-top: -50px;
+                    color: purple;
+                    text-align: center;
+                    font-size: 16px;
+                    opacity: 0.6;
+                    transition: 0.3s;
+                    cursor: pointer;
+                    border-radius: 15px;
+                    text-decoration: none;
+                    display:flex;
+                    text-transform: uppercase;">
+                        <a href="../index.php" style="margin-top: 0px;">Back to Home</a>
+                    </button>
+                </div>
+                
+    </div>
+    </div>
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p class="error-message">Invalid username or password.</p>
+        </div>
+    </div>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // Display the modal if PHP variable errorMessage is set
+        <?php if(isset($errorMessage)): ?>
+            modal.style.display = "block";
+        <?php endif; ?>
+    </script>
+
 </body>
 </html>

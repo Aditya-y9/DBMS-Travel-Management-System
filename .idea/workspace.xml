@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c244a177-7f48-4255-add3-3d349125b420" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/TMS/admin/add_user.php" beforeDir="false" afterPath="$PROJECT_DIR$/TMS/admin/add_user.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TMS/admin/delete_user.php" beforeDir="false" afterPath="$PROJECT_DIR$/TMS/admin/delete_user.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TMS/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/TMS/admin/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TMS/admin/tk.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TMS/includes/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/TMS/includes/footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TMS/includes/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/TMS/includes/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TMS/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/TMS/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TMS/package-details.php" beforeDir="false" afterPath="$PROJECT_DIR$/TMS/package-details.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TMS/staff/dashboard.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TMS/staff/includes/config.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TMS/staff/includes/footer.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TMS/staff/includes/header.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TMS/staff/includes/sidebarmenu.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TMS/staff/index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TMS/staff/manage-bookings.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TMS/staff/manage-enquires.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TMS/staff/manage-hotels.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TMS/staff/manage-packages.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TMS/staff/manage-transport.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TMS/staff/manage-users.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TMS/staff/manageissues.php" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2gV6PoPf81W3NvLpn6ZejGFI7X1" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/xampp/htdocs/onlinetourism",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c244a177-7f48-4255-add3-3d349125b420" name="Changes" comment="" />
+      <created>1715770375418</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1715770375418</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

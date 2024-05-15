@@ -28,6 +28,11 @@ if (isset($_POST['login'])) {
     $stmt->execute();
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
+    if (!$user) {
+        $errorMessage = "Invalid username or password.";
+    }
+    
+
     if ($user) {
         $_SESSION['alogin'] = $uname;
         echo "<script type='text/javascript'> document.location = 'dashboard.php'; </script>";
@@ -36,7 +41,6 @@ if (isset($_POST['login'])) {
     }
 }
 ?>
-
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -60,6 +64,50 @@ if (isset($_POST['login'])) {
 <!-- lined-icons -->
 <link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
 <!-- //lined-icons -->
+<style>
+    .error-message {
+        color: #dc3545;
+        font-size: 24px;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    /* Modal styles */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.4);
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>
 </head> 
 <body>
 
@@ -105,5 +153,33 @@ if (isset($_POST['login'])) {
     </div>
     </div>
     </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p class="error-message">Invalid username or password.</p>
+        </div>
+    </div>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // Display the modal if PHP variable errorMessage is set
+        <?php if(isset($errorMessage)): ?>
+            modal.style.display = "block";
+        <?php endif; ?>
+    </script>
+
 </body>
 </html>

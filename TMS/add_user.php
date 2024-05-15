@@ -10,7 +10,7 @@
             background-color: #f8f9fa;
             margin: 0;
             padding: 0;
-            background-image: url('../images/hotel/5.jpg');
+            background-image: url('./images/hotel/2.jpg');
         }
 
         .page-container {
