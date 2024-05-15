@@ -47,142 +47,130 @@ if (isset($_POST['login'])) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>TMS | Admin Sign in</title>
+<title>DBMS | Welcome!</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!-- Bootstrap Core CSS -->
-<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
-<!-- Custom CSS -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
 <link href="css/style.css" rel='stylesheet' type='text/css' />
-<link rel="stylesheet" href="css/morris.css" type="text/css"/>
-<!-- Graph CSS -->
-<link href="css/font-awesome.css" rel="stylesheet">
-<link rel="stylesheet" href="css/jquery-ui.css"> 
-<!-- jQuery -->
-<script src="js/jquery-2.1.4.min.js"></script>
-<!-- //jQuery -->
-<link href='//fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'/>
-<link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-<!-- lined-icons -->
-<link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
-<!-- //lined-icons -->
 <style>
-    .error-message {
-        color: #dc3545;
-        font-size: 24px;
-        text-align: center;
-        margin-top: 20px;
+    /* Additional styles */
+    body {
+        background-image: url('./images/16.jpg'); /* Add a background image */
+        font-family: 'Roboto', sans-serif;
+        background-color: #f8f9fa;
+        width: 100vw;
+        height:  100vh;
     }
 
-    /* Modal styles */
-    .modal {
-        display: none;
-        position: fixed;
-        z-index: 1;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgb(0,0,0);
-        background-color: rgba(0,0,0,0.4);
+    .main-wthree {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        margin-top: 100px;
     }
 
-    .modal-content {
-        background-color: #fefefe;
-        margin: 15% auto;
-        padding: 20px;
-        border: 1px solid #888;
-        width: 80%;
+    .sin-w3-agile h2 {
+        color: #333;
+        font-size: 36px;
+        font-weight: 700;
+        margin-bottom: 30px;
     }
 
-    .close {
-        color: #aaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
+    .form-control {
+        border: 2px solid #ddd;
+        border-radius: 25px;
+        padding: 15px 25px;
+        font-size: 16px;
+        color: #333;
+        transition: all 0.3s ease;
     }
 
-    .close:hover,
-    .close:focus {
-        color: black;
-        text-decoration: none;
+    .form-control:focus {
+        border-color: #007bff;
+        box-shadow: none;
+    }
+
+    .login-w3 input[type="submit"] {
+        background: #007bff;
+        border: none;
+        color: #fff;
+        font-size: 18px;
+        padding: 15px 0;
         cursor: pointer;
+        width: 100%;
+        border-radius: 25px;
+        outline: none;
+        margin-top: 30px;
     }
+
+    .login-w3 input[type="submit"]:hover {
+        background: #0056b3;
+    }
+
+    .back {
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    .back a {
+        color: #333;
+        text-decoration: none;
+        font-size: 16px;
+    }
+
+    .back a:hover {
+        color: #007bff;
+    }
+
+    .ad h1 {
+        color: #333;
+        font-size: 36px;
+        font-weight: 700;
+        margin-bottom: 30px;
+    }
+
+    .ad h1 span {
+        color: #007bff;
+    }
+
+
+    /* Responsive */
+
+
 </style>
 </head> 
 <body>
 
-    <div class="main-wthree">
     <div class="container">
-    <div class="sin-w3-agile">
-        <h2>Sign In</h2>
-        <form method="post">
-            <div class="username">
-                <span class="username">Username:</span>
-                <input type="text" name="username" class="name" placeholder="" required="">
-                <div class="clearfix"></div>
-            </div>
-            <div class="password-agileits">
-                <span class="username">Password:</span>
-                <input type="password" name="password" class="password" placeholder="" required="">
-                <div class="clearfix"></div>
-            </div>
-            
-            <div class="login-w3">
-                    <input type="submit" class="login" name="login" value="Sign In">
-            </div>
-            <div class="clearfix"></div>
-        </form>
-                <div class="back">
-                    <button class="btn btn-primary" type="button" style="background-color: white;
-                    border: none;
-                    margin-top: -50px;
-                    color: purple;
-                    text-align: center;
-                    font-size: 16px;
-                    opacity: 0.6;
-                    transition: 0.3s;
-                    cursor: pointer;
-                    border-radius: 15px;
-                    text-decoration: none;
-                    display:flex;
-                    text-transform: uppercase;">
-                        <a href="../index.php" style="margin-top: 0px;">Back to Home</a>
-                    </button>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="main-wthree">
+                    <div class="sin-w3-agile">
+                        <div class="ad">
+                            <h1><span>DBMS</span>
+                        </div>
+                        <h2>Sign In</h2>
+                        <form method="post">
+                            <div class="username">
+                                <input type="text" name="username" class="form-control" placeholder="Username" required="">
+                            </div>
+                            <div class="password-agileits">
+                                <input type="password" name="password" class="form-control" placeholder="Password" required="">
+                            </div>
+                            <div class="login-w3">
+                                <input type="submit" class="login" name="login" value="Sign In">
+                            </div>
+                        </form>
+                        <div class="back">
+                            <a href="./admin/index.php">Admin Login</a>
+                        </div>
+                    </div>
                 </div>
-                
-    </div>
-    </div>
-    </div>
-
-    <!-- The Modal -->
-    <div id="myModal" class="modal">
-        <!-- Modal content -->
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <p class="error-message">Invalid username or password.</p>
+            </div>
         </div>
     </div>
-
-    <script>
-        // Get the modal
-        var modal = document.getElementById("myModal");
-
-        // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];
-
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-
-        // Display the modal if PHP variable errorMessage is set
-        <?php if(isset($errorMessage)): ?>
-            modal.style.display = "block";
-        <?php endif; ?>
-    </script>
 
 </body>
 </html>

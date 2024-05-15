@@ -26,46 +26,65 @@ def generate_bill(pkgid, user_id, fromdate, todate, comment, total):
     # Initialize PDF
     pdf = fpdf.FPDF(format='letter')
     pdf.add_page()
-    pdf.set_auto_page_break(auto=True, margin=15)
 
     # Set font
     pdf.set_font("Arial", size=12)
 
     # Title
-    pdf.cell(200, 10, txt="Bill", ln=True, align="C")
+    pdf.set_text_color(56, 87, 245)  # Blue color
+    pdf.set_font("Arial", style='B', size=20)
+    pdf.cell(200, 10, txt="Invoice", ln=True, align="C")
     pdf.ln(10)  # Add space after title
 
-    # User Information
-    pdf.set_fill_color(200, 220, 255)  # Light blue background
-    pdf.cell(0, 10, txt="User Information:", ln=True, fill=True)
-    pdf.cell(0, 10, txt=f"User ID: {user_id}", ln=True)
+    # User Information Table
+    pdf.set_fill_color(244, 244, 244)  # Light gray background
+    pdf.set_text_color(0, 0, 0)  # Black color
+    pdf.set_font("Arial", style='B', size=14)
+    pdf.cell(0, 10, txt="User Information", ln=True, fill=True)
+    pdf.set_font("Arial", size=12)
+    pdf.cell(70, 10, txt="User ID:", border=1)
+    pdf.cell(0, 10, txt=f"{user_id}", ln=True, border=1)
     if user_data:
-        pdf.cell(0, 10, txt=f"Name: {user_data[1]}", ln=True)
-        pdf.cell(0, 10, txt=f"Email: {user_data[4]}", ln=True)
-        pdf.cell(0, 10, txt=f"Address: {user_data[5]}", ln=True)
-    pdf.ln(5)  # Add space after user information
+        pdf.cell(70, 10, txt="Name:", border=1)
+        pdf.cell(0, 10, txt=f"{user_data[1]}", ln=True, border=1)
+        pdf.cell(70, 10, txt="Email:", border=1)
+        pdf.cell(0, 10, txt=f"{user_data[4]}", ln=True, border=1)
+        pdf.cell(70, 10, txt="Address:", border=1)
+        pdf.cell(0, 10, txt=f"{user_data[5]}", ln=True, border=1)
+    pdf.ln(10)  # Add space after user information
 
-    # Package Information
-    pdf.set_fill_color(200, 220, 255)  # Light blue background
-    pdf.cell(0, 10, txt="Package Information:", ln=True, fill=True)
-    pdf.cell(0, 10, txt=f"Package ID: {pkgid}", ln=True)
+    # Package Information Table
+    pdf.set_fill_color(244, 244, 244)  # Light gray background
+    pdf.set_font("Arial", style='B', size=14)
+    pdf.cell(0, 10, txt="Package Information", ln=True, fill=True)
+    pdf.set_font("Arial", size=12)
+    pdf.cell(70, 10, txt="Package ID:", border=1)
+    pdf.cell(0, 10, txt=f"{pkgid}", ln=True, border=1)
     if package_data:
-        pdf.cell(0, 10, txt=f"Package Name: {package_data[1]}", ln=True)
-        pdf.cell(0, 10, txt=f"Location: {package_data[3]}", ln=True)
-        pdf.cell(0, 10, txt=f"Price: ${package_data[4]}", ln=True)
-    pdf.ln(5)  # Add space after package information
+        pdf.cell(70, 10, txt="Package Name:", border=1)
+        pdf.cell(0, 10, txt=f"{package_data[1]}", ln=True, border=1)
+        pdf.cell(70, 10, txt="Location:", border=1)
+        pdf.cell(0, 10, txt=f"{package_data[3]}", ln=True, border=1)
+        pdf.cell(70, 10, txt="Price:", border=1)
+        pdf.cell(0, 10, txt=f"${package_data[4]}", ln=True, border=1)
+    pdf.ln(10)  # Add space after package information
 
-    # Dates
-    pdf.cell(0, 10, txt=f"From: {fromdate}", ln=True)
-    pdf.cell(0, 10, txt=f"To: {todate}", ln=True)
-    pdf.ln(5)  # Add space after dates
+    # Dates Table
+    pdf.cell(70, 10, txt="From:", border=1)
+    pdf.cell(0, 10, txt=f"{fromdate}", ln=True, border=1)
+    pdf.cell(70, 10, txt="To:", border=1)
+    pdf.cell(0, 10, txt=f"{todate}", ln=True, border=1)
+    pdf.ln(10)  # Add space after dates
 
-    # Additional Comments
-    pdf.cell(0, 10, txt=f"Comments: {comment}", ln=True)
-    pdf.ln(5)  # Add space after comments
+    # Additional Comments Table
+    pdf.cell(0, 10, txt="Additional Comments", ln=True, fill=True)
+    pdf.cell(0, 10, txt=f"{comment}", ln=True, border=1)
+    pdf.ln(10)  # Add space after comments
 
     # Total
-    pdf.cell(0, 10, txt=f"Total: ${total}", ln=True)
+    pdf.set_font("Arial", style='B', size=16)
+    pdf.cell(70, 10, txt="Total:", border=1)
+    pdf.cell(0, 10, txt=f"${total}", ln=True, border=1)
     pdf.ln(10)  # Add space after total
 
     # Save the PDF

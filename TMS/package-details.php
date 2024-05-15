@@ -11,7 +11,25 @@ if(isset($_POST['submit2'])) {
     $fromDate = $_POST['fromdate'];
     $toDate = $_POST['todate'];
     $comment = $_POST['comment'];
-    $totalBill = 100; // Replace 100 with your actual calculated total
+	// get the package price
+	$sql = "SELECT * from tbltourpackages where PackageId=:pkgid";
+	$query = $dbh->prepare($sql);
+	$query -> bindParam(':pkgid', $pkgid, PDO::PARAM_STR);
+	$query->execute();
+	$results=$query->fetchAll(PDO::FETCH_OBJ);
+	$cnt=1;
+	if($query->rowCount() > 0)
+	{
+		foreach($results as $result)
+		{
+			$price = $result->PackagePrice;
+		}
+	}
+	// calculate the total bill
+	$fromDate1 = strtotime($fromDate);
+	$toDate1 = strtotime($toDate);
+	$days = ($toDate1 - $fromDate1) / (60 * 60 * 24);
+	$totalBill = $days * $price;
 
 	print_r($pkgid);
 	print_r($user_id);
@@ -19,7 +37,7 @@ if(isset($_POST['submit2'])) {
 	print_r($toDate);
 	print_r($comment);
 	print_r($totalBill);
-	
+
 
     // Redirect to bill.php with pkgid, user_id, dates, comments, and total
 	header("Location: bill.php?pkgid=$pkgid&user_id=$user_id&fromdate=$fromDate&todate=$toDate&comment=$comment&total=$totalBill");
@@ -244,8 +262,9 @@ foreach($results as $result)
 			</div>
 						<div class="clearfix"></div>
 				<div class="grand">
-					<p>Grand Total</p>
+					<p>Price</p>
 					<h3>₹<?php echo htmlentities($result->PackagePrice);?></h3>
+					<h5>Per Day</h5>
 				</div>
 			</div>
 		<h3>Package Details</h3>
