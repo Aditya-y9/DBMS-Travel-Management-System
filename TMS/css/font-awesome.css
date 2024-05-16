@@ -585,7 +585,7 @@
   content: "\f081";
 }
 .fa-facebook-square:before {
-  content: "\f082";
+  content: "\f092";
 }
 .fa-camera-retro:before {
   content: "\f083";
@@ -654,10 +654,8 @@
 .fa-twitter:before {
   content: "\f099";
 }
+
 .fa-facebook:before {
-  content: "\f09a";
-}
-.fa-github:before {
   content: "\f09b";
 }
 .fa-unlock:before {

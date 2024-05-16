@@ -46,7 +46,7 @@ $id = $_GET['id'];
 				<a href="offers.html"><i class="fa fa-inr fa-5x"></i></a>
 			</div>
 			<div class="rup-rgt">
-				<h3>UP TO USD. 50 OFF</h3>
+				<h3>UP TO Rupees. 50000 OFF</h3>
 				<h4><a href="offers.html">TRAVEL SMART</a></h4>
 				
 			</div>

@@ -109,7 +109,7 @@ foreach($results as $result)
 <form name="book" method="post">
 		<div class="selectroom_top">
 			<div class="col-md-4 selectroom_left wow fadeInLeft animated" data-wow-delay=".5s">
-            <img class="img-responsive" src="images/transport/<?php echo htmlentities($result->Hotel_Image) . '.jpg';?>" style="width: 250px; height: 200px;">
+            <img class="img-responsive" src="images/hotel/<?php echo htmlentities($result->Hotel_Image) . '.jpg';?>" style="width: 250px; height: 200px;">
 			</div>
 			<div class="col-md-8 selectroom_right wow fadeInRight animated" data-wow-delay=".5s">
 				<h2><?php echo htmlentities($result->Name);?></h2>

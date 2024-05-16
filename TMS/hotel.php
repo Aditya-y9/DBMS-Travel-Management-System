@@ -30,7 +30,6 @@
         $email = $row["Email_Id"];
         $dob = $row["Dob"];
         $address = $row["Address"];
-        
 
 
         // get package details from pkgid
@@ -40,8 +39,7 @@
         $packageName = $row["PackageName"];
         $packageType = $row["PackageType"];
         $packagePrice = $row["PackagePrice"];
-        $image = $row["PackageImage"];
-
+        
         // insert everything into bookings table
         $sql = "INSERT INTO bookings (PackageId,User_id,FromDate,ToDate,Comment,Total,UserName,Email,DOB,Address,PackageName,PackageType,PackagePrice) VALUES ('$pkgid','$user_id','$fromdate','$todate','$comment','$total','$name','$email','$dob','$address','$packageName','$packageType','$packagePrice')";
         $conn->query($sql);
@@ -90,10 +88,9 @@
             var todate = "<?php echo $_GET['todate']; ?>";
             var comment = "<?php echo $_GET['comment']; ?>";
             var total = "<?php echo $_GET['total']; ?>";
-            var image = "<?php echo $image; ?>";
 
             // Construct the command to execute the Python script
-            var command = "python \"C:\\xampp\\htdocs\\onlinetourism\\TMS\\bill.py\" \"" + pkgid + "\" \"" + user_id + "\" \"" + fromdate + "\" \"" + todate + "\" \"" + comment + "\" \"" + total + "\"" + "\" \"" + image + "\"";
+            var command = "python \"C:\\xampp\\htdocs\\onlinetourism\\TMS\\bill.py\" \"" + pkgid + "\" \"" + user_id + "\" \"" + fromdate + "\" \"" + todate + "\" \"" + comment + "\" \"" + total + "\"";
 
             // Execute the command
             $.ajax({

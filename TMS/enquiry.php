@@ -1,6 +1,10 @@
 <?php
 // Include your database connection file here
+
 include('includes/config.php');
+
+
+error_reporting(0);
 
 if(isset($_POST['submit1']))
 {

@@ -112,9 +112,9 @@ if(strlen($_SESSION['alogin']) == 0) {
     </script>
 </head>
 <body>
-<iframe title="dbms powerbi report final[1]" width="965" height="541.25" style="margin-left: 17px" src="https://app.powerbi.com/reportEmbed?reportId=36dc69f1-9d8f-46f5-a370-7779c729eb3e&autoAuth=true&ctid=c8ff15f2-8577-4ae1-a5d4-866e8d537759" frameborder="0" allowFullScreen="true"></iframe>
+<iframe title="dbms powerbi report final[1]" width="965" height="541.25" style="margin-left: 17px"  src="https://app.powerbi.com/reportEmbed?reportId=44a390c4-2754-432c-8d89-397893a17d77&autoAuth=true&ctid=c8ff15f2-8577-4ae1-a5d4-866e8d537759" frameborder="0" allowFullScreen="true"></iframe>
 
-<button id="executeScript" style="margin: 20px; padding: 10px; font-size: 16px; cursor: pointer; background-color: #4CAF50; color: white; border: none;"> Generate Power BI Report </button>
+<button id="executeScript" style="margin: 20px; padding: 10px; font-size: 16px; cursor: pointer; background-color: #4CAF50; color: white; border: none; width:965px; height: 40px;"> Generate Power BI Report </button>
                     <div class="col-md-4">
                         <div class="card widget">
                             <div class="card-body">

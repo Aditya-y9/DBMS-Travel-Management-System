@@ -1,7 +1,6 @@
 <?php
 session_start();
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+error_reporting(0);
 include('includes/config.php');
 
 // Fetch data for the bar chart (Itinerary - Title, Budget)
@@ -90,6 +89,9 @@ if ($totalWalletBalanceResult) {
 	</div>
 </div>
     <!-- Your HTML code for the header and banner -->
+
+
+    <iframe title="dbms powerbi report final[1]" width="1280" height="541.25" style="margin-top:40px;"src="https://app.powerbi.com/reportEmbed?reportId=44a390c4-2754-432c-8d89-397893a17d77&autoAuth=true&ctid=c8ff15f2-8577-4ae1-a5d4-866e8d537759" frameborder="0" allowFullScreen="true"></iframe>
     
     <div class="container">
         <div class="row">
@@ -125,6 +127,9 @@ if ($totalWalletBalanceResult) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
     <script>
         new WOW().init();
+
+      
+
 
         // Data for the bar chart (Itinerary)
         var barChartData = {

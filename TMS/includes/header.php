@@ -21,12 +21,12 @@
 <div class="top-header">
 	<div class="container">
 		<ul class="tp-hd-lft wow fadeInLeft animated" data-wow-delay=".5s">
-			<li class="hm"><a href="index.php"><i class="fa fa-home"></i></a></li>
+			<li class="hm"><a href="index.php"><i class="fa fa-sign-out" style="font-size:28px;"></i></a></li>
 		</ul>
 		<ul class="tp-hd-rgt wow fadeInRight animated" data-wow-delay=".5s"> 
 			<li class="tol">Toll-Free Number : 1800-1800 </li>				
-			<li class="sig"><a href="add_user.php"  > Sign Up</a></li>
-			<li class="sigi"><a href="#">/ Sign In</a></li>
+			<li class="sig"><a href="add_user.php"  > Sign Up /</a></li>
+			<li class="sigi"><a href="index.php" data-toggle="modal" data-target="#myModal" >Sign In</a></li>
         </ul>
 		<div class="clearfix"></div>
 	</div>
@@ -37,7 +37,7 @@
 <div class="header">
 	<div class="container">
 		<div class="logo wow fadeInDown animated" data-wow-delay=".5s">
-			<a href="index.php">Dream Holidays <span>Travel Management Portal</span></a>	
+			<a href="home.php">Dream Holidays <span>Travel Management Portal</span></a>	
 		</div>
 	
 		<div class="lock fadeInDown animated" data-wow-delay=".5s"> 
@@ -68,7 +68,7 @@
 				<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
 					<nav class="cl-effect-1">
 						<ul class="nav navbar-nav">
-							<li><a href="index.php">Home</a></li>
+							<li><a href="home.php">Home</a></li>
 							<li><a href="page.php?type=aboutus">About</a></li>
 								<li><a href="package-list.php">Tour Packages</a></li>
 								<li><a href="privacy.php">Privacy Policy</a></li>

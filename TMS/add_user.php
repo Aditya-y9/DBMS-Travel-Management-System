@@ -1,3 +1,46 @@
+<?php
+// Include your database connection file here
+include('includes/config.php');
+
+if(isset($_POST['submit'])) {
+
+    $name = $_POST['name'];
+    $password = $_POST['password'];
+    $dob = $_POST['dob'];
+    $email = $_POST['email'];
+    $address = $_POST['address'];
+
+    // Fetch the maximum User_Id from the user table
+    $sqlMaxId = "SELECT MAX(User_Id) AS maxId FROM user";
+    $queryMaxId = $dbh->prepare($sqlMaxId);
+    $queryMaxId->execute();
+    $row = $queryMaxId->fetch(PDO::FETCH_ASSOC);
+    $maxId = $row['maxId'];
+    // Increment the maxId to generate the new User_Id
+    $userId = 'U' . sprintf("%04d", substr($maxId, 1) + 1);
+
+    // Insert data into the user table
+    $sql = "INSERT INTO user (User_Id, Name, Password, Dob, Email_Id, Address) 
+            VALUES (:userId, :name, :password, :dob, :email, :address)";
+    $query = $dbh->prepare($sql);
+    
+    // Binding parameters
+    $query->bindParam(':userId', $userId, PDO::PARAM_STR);
+    $query->bindParam(':name', $name, PDO::PARAM_STR);
+    $query->bindParam(':password', $password, PDO::PARAM_STR);
+    $query->bindParam(':dob', $dob, PDO::PARAM_STR);
+    $query->bindParam(':email', $email, PDO::PARAM_STR);
+    $query->bindParam(':address', $address, PDO::PARAM_STR);
+    
+    if($query->execute()) {
+        echo '<script>alert("Data inserted successfully!");</script>';
+    } else {
+        echo '<script>alert("Error inserting data!");</script>';
+    }
+}
+?>
+
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -210,7 +253,7 @@
             text-decoration: none;
             display: inline-block;
             font-size: 16px;">
-            <a href="index.php"
+            <a href="home.php"
             style="text-decoration: none;
             color: white;"
             >Home</a>

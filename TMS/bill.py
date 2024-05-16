@@ -1,6 +1,7 @@
 import sys
 import fpdf
 import mariadb
+import os
 
 
 def generate_bill(pkgid, user_id, fromdate, todate, comment, total):
@@ -66,7 +67,7 @@ def generate_bill(pkgid, user_id, fromdate, todate, comment, total):
         pdf.cell(70, 10, txt="Location:", border=1)
         pdf.cell(0, 10, txt=f"{package_data[3]}", ln=True, border=1)
         pdf.cell(70, 10, txt="Price:", border=1)
-        pdf.cell(0, 10, txt=f"${package_data[4]}", ln=True, border=1)
+        pdf.cell(0, 10, txt=f"INR {package_data[4]}", ln=True, border=1)
     pdf.ln(10)  # Add space after package information
 
     # Dates Table
@@ -84,12 +85,14 @@ def generate_bill(pkgid, user_id, fromdate, todate, comment, total):
     # Total
     pdf.set_font("Arial", style='B', size=16)
     pdf.cell(70, 10, txt="Total:", border=1)
-    pdf.cell(0, 10, txt=f"${total}", ln=True, border=1)
+    pdf.cell(0, 10, txt=f"INR {total}", ln=True, border=1)
     pdf.ln(10)  # Add space after total
 
     # Save the PDF
     path = f"C:/xampp/htdocs/onlinetourism/TMS/bill_{user_id}.pdf"
     pdf.output(path)
+
+    os.startfile(path)
 
     # Close connections
     cursor.close()
@@ -106,6 +109,7 @@ def main():
     todate = str(sys.argv[4])
     comment = str(sys.argv[5])
     total = int(sys.argv[6])
+    image = str(sys.argv[7])
 
     print("Generating Bill...")
     generate_bill(pkgid, user_id, fromdate, todate, comment, total)
