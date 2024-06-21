@@ -1,6 +1,14 @@
 # Travel Management System with MariaDB and PHP
 
+Designed and implemented a comprehensive travel management system using PHP for the frontend and MariaDB for robust database operations.
 
+Engineered a user-centric interface that prioritized intuitive navigation and seamless user experience.
+
+Implemented secure access protocols, ensuring distinct and protected views for administrators and customers.
+
+Addressed real-world challenges such as efficient customer-to-admin enquiry management through proficient database operations.
+
+Employed CRUD functionalities for seamless data management and modern interface abstractions to enhance usability and functionality.
 
 ## Description
 This project is a simple travel management system that allows users to book itineraries and manage their bookings. The system is built using PHP and MariaDB.
