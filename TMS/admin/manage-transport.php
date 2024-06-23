@@ -88,7 +88,7 @@ tr:nth-child(even) {
             </div>
             <!-- Breadcrumb -->
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a><i class="fa fa-angle-right"></i>Manage Hotels</li>
+                <li class="breadcrumb-item"><a href="index.html">Home</a><i class="fa fa-angle-right"></i>Manage Transport</li>
             </ol>
             <!-- Manage Users Table -->
             <div class="agile-grids">    
@@ -154,7 +154,7 @@ tr:nth-child(even) {
 
                         </style>
                         <a href="add_transport.php" class="btn btn-primary" style="margin-left: 0px; width:950px"
-                        >Add Hotel</a>
+                        >Add Transport</a>
                         <a href="delete_transport.php" class="btn btn-danger" style="margin-left: 0px;width:950px">Delete Transport By Name</a>
                         <h2>Manage Transport</h2>
                         <table id="table">

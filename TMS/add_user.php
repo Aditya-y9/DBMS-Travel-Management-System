@@ -253,7 +253,7 @@ if(isset($_POST['submit'])) {
             text-decoration: none;
             display: inline-block;
             font-size: 16px;">
-            <a href="home.php"
+            <a href="index.php"
             style="text-decoration: none;
             color: white;"
             >Home</a>

@@ -166,6 +166,9 @@ if (isset($_POST['login'])) {
                         <div class="back">
                             <a href="./admin/index.php">Admin Login</a>
                         </div>
+                        <div class = "back">
+                            <a href="add_user.php">Register New User</a>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -109,7 +109,6 @@ def main():
     todate = str(sys.argv[4])
     comment = str(sys.argv[5])
     total = int(sys.argv[6])
-    image = str(sys.argv[7])
 
     print("Generating Bill...")
     generate_bill(pkgid, user_id, fromdate, todate, comment, total)

@@ -1,7 +1,4 @@
 <?php
-
-error_reporting(E_ALL);
-ini_set('display_errors', 1);   
 // Include config file
 define('DB_SERVER', 'MSHOME:3304');
 define('DB_USERNAME', 'username');
@@ -10,11 +7,17 @@ define('DB_NAME', 'dbms');
 
 $link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
 
- 
 // Define variables and initialize with empty values
-$itinerary_title = $itinerary_budget = $country = $state = $city = $rating = $no_of_travellers = $food_preference  = $date_of_travel = $ItineraryImage = "";
-$itinerary_title_err = $itinerary_budget_err = $country_err = $state_err = $city_err = $rating_err = $no_of_travellers_err = $food_preference_err  = $date_of_travel_err = $ItineraryImage_err = "";
- 
+$itinerary_id = $itinerary_title = $itinerary_budget = $country = $state = $city = $rating = $no_of_travellers = $food_preference  = $date_of_travel = $itinerary_image = "";
+$itinerary_title_err = $itinerary_budget_err = $country_err = $state_err = $city_err = $rating_err = $no_of_travellers_err = $food_preference_err  = $date_of_travel_err = $itinerary_image_err = "";
+
+// Function to increment the itinerary_id
+function incrementItineraryID($lastID) {
+    $prefix = substr($lastID, 0, 2); // IT
+    $number = intval(substr($lastID, 2)) + 1; // Increment the numeric part
+    return $prefix . str_pad($number, 4, '0', STR_PAD_LEFT); // Combine and pad with zeros
+}
+
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate itinerary title
@@ -56,7 +59,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         $city = $input_city;
     }
-    
 
     // Validate rating
     $input_rating = trim($_POST["rating"]);
@@ -91,34 +93,43 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 
     // Validate itinerary image
-    $input_ItineraryImage = trim($_POST["ItineraryImage"]);
-    $pimage=$_FILES["ItineraryImage"]["name"];
-    move_uploaded_file($_FILES["ItineraryImage"]["tmp_name"],"pacakgeimages/".$_FILES["ItineraryImage"]["name"]);
-    if(empty($input_ItineraryImage)){
-        $ItineraryImage_err = "Please enter the itinerary image.";     
+    $input_itinerary_image = trim($_POST["itinerary_image"]);
+    if(empty($input_itinerary_image)){
+        $itinerary_image_err = "Please enter the itinerary image.";     
     } else{
-        $ItineraryImage = $input_ItineraryImage;
+        $itinerary_image = $input_itinerary_image;
     }
-    
+
     // Check input errors before inserting in database
-    if(empty($itinerary_title_err) && empty($itinerary_budget_err) && empty($country_err) && empty($state_err) && empty($city_err) && empty($rating_err) && empty($no_of_travellers_err) && empty($food_preference_err) && empty($date_of_travel_err) && empty($ItineraryImage_err)){
+    if(empty($itinerary_title_err) && empty($itinerary_budget_err) && empty($country_err) && empty($state_err) && empty($city_err) && empty($rating_err) && empty($no_of_travellers_err) && empty($food_preference_err) && empty($date_of_travel_err) && empty($itinerary_image_err)){
+        // Retrieve the latest itinerary_id from the database
+        $sql = "SELECT itinerary_id FROM itinerary ORDER BY itinerary_id DESC LIMIT 1";
+        $result = mysqli_query($link, $sql);
+        if($row = mysqli_fetch_assoc($result)){
+            $lastID = $row['itinerary_id'];
+            $itinerary_id = incrementItineraryID($lastID);
+        } else {
+            // If no records found, start with IT0001
+            $itinerary_id = 'IT0001';
+        }
+
         // Prepare an insert statement
-        $sql = "INSERT INTO itinerary (Title, Budget, Country, State, City, Rating, No_Of_Travellers, FoodPreference, Date_Of_Travel, ItineraryImage) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-         
+        $sql = "INSERT INTO itinerary (itinerary_id, Title, Budget, Country, State, City, Rating, No_Of_Travellers, FoodPreference, Date_Of_Travel, ItineraryImage) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "sissssisss", $itinerary_title, $itinerary_budget, $country, $state, $city, $rating, $no_of_travellers, $food_preference, $date_of_travel, $ItineraryImage);
+            mysqli_stmt_bind_param($stmt, "ssissssisss", $itinerary_id, $itinerary_title, $itinerary_budget, $country, $state, $city, $rating, $no_of_travellers, $food_preference, $date_of_travel, $itinerary_image);
             
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
                 // Records created successfully. Redirect to landing page
-                header("location: index.php");
+                header("location: dashboard.php");
                 exit();
             } else{
                 echo "Something went wrong. Please try again later.";
             }
         }
-         
+        
         // Close statement
         mysqli_stmt_close($stmt);
     }
@@ -127,6 +138,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     mysqli_close($link);
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -205,10 +217,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             <span class="help-block"><?php echo $date_of_travel_err; ?></span>
                         </div>
 
-                        <div class="form-group <?php echo (!empty($ItineraryImage_err)) ? 'has-error' : ''; ?>">
+                        <div class="form-group <?php echo (!empty($itinerary_image_err)) ? 'has-error' : ''; ?>">
                             <label>Itinerary Image</label>
-                            <input type="file" name="ItineraryImage" class="form-control" value="<?php echo $ItineraryImage; ?>">
-                            <span class="help-block"><?php echo $ItineraryImage_err; ?></span>
+                            <input type="file" name="itinerary_image" class="form-control" value="<?php echo $itinerary_image; ?>">
+                            <span class="help-block"><?php echo $itinerary_image_err; ?></span>
                         </div>
                         
                         <input type="submit" class="btn btn-primary" value="Submit">

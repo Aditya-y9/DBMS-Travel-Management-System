@@ -257,20 +257,6 @@ foreach($results as $result)
 			<h2>Travels</h2>
 			<div class="selectroom-info animated wow fadeInUp animated" data-wow-duration="1200ms" data-wow-delay="500ms" style="visibility: visible; animation-duration: 1200ms; animation-delay: 500ms; animation-name: fadeInUp; margin-top: -70px">
 				<ul>
-				
-					<li class="spe">
-						<label class="inputLabel">Comment</label>
-						<input class="special" type="text" name="comment" required="">
-					</li>
-					<?php if($_SESSION['login'])
-					{?>
-						<li class="spe" align="center">
-					<button type="submit" name="submit2" class="btn-primary btn">Book</button>
-						</li>
-						<?php } else {?>
-							<li class="sigi" align="center" style="margin-top: 1%">
-							<a href="#" data-toggle="modal" data-target="#myModal4" class="btn-primary btn" > Book</a></li>
-							<?php } ?>
 					<div class="clearfix"></div>
 				</ul>
 			</div>

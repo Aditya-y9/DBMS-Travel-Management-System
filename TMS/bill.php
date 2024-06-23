@@ -1,5 +1,8 @@
+
 <?php
 
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
     // INSERT URL values to bookings tables
     $servername = "MSHOME:3304";
     $username = "username";
@@ -21,6 +24,16 @@
         $comment = $_GET['comment'];
         $total = $_GET['total'];
 
+        echo "From Date: " . $fromdate . "<br>";
+        echo "To Date: " . $todate . "<br>";
+
+    
+
+
+
+        echo "Package ID: " . $pkgid . "<br>";
+        echo "User ID: " . $user_id . "<br>";
+
 
         // get user details from user_id
         $sql = "SELECT * FROM user WHERE User_Id = '$user_id'";
@@ -30,7 +43,6 @@
         $email = $row["Email_Id"];
         $dob = $row["Dob"];
         $address = $row["Address"];
-        
 
 
         // get package details from pkgid
@@ -40,7 +52,14 @@
         $packageName = $row["PackageName"];
         $packageType = $row["PackageType"];
         $packagePrice = $row["PackagePrice"];
-        $image = $row["PackageImage"];
+
+        echo "Package Name: " . $packageName . "<br>";
+        echo "Package Type: " . $packageType . "<br>";
+        echo "Package Price: " . $packagePrice . "<br>";
+
+        echo "Name: " . $name . "<br>";
+        echo "Email: " . $email . "<br>";
+        echo "DOB: " . $dob . "<br>";
 
         // insert everything into bookings table
         $sql = "INSERT INTO bookings (PackageId,User_id,FromDate,ToDate,Comment,Total,UserName,Email,DOB,Address,PackageName,PackageType,PackagePrice) VALUES ('$pkgid','$user_id','$fromdate','$todate','$comment','$total','$name','$email','$dob','$address','$packageName','$packageType','$packagePrice')";
@@ -90,10 +109,9 @@
             var todate = "<?php echo $_GET['todate']; ?>";
             var comment = "<?php echo $_GET['comment']; ?>";
             var total = "<?php echo $_GET['total']; ?>";
-            var image = "<?php echo $image; ?>";
 
             // Construct the command to execute the Python script
-            var command = "python \"C:\\xampp\\htdocs\\onlinetourism\\TMS\\bill.py\" \"" + pkgid + "\" \"" + user_id + "\" \"" + fromdate + "\" \"" + todate + "\" \"" + comment + "\" \"" + total + "\"" + "\" \"" + image + "\"";
+            var command = "python \"C:\\xampp\\htdocs\\onlinetourism\\TMS\\bill.py\" \"" + pkgid + "\" \"" + user_id + "\" \"" + fromdate + "\" \"" + todate + "\" \"" + comment + "\" \"" + total + "\"";
 
             // Execute the command
             $.ajax({
