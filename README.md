@@ -1,3 +1,5 @@
+## Implemented From Scratch (As Visible in Commit History)
+
 # Travel Management System with MariaDB and PHP
 
 Designed and implemented a comprehensive travel management system using PHP for the frontend and MariaDB for robust database operations.
