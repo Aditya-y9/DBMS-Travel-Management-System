@@ -12,6 +12,35 @@ Addressed real-world challenges such as efficient customer-to-admin enquiry mana
 
 Employed CRUD functionalities for seamless data management and modern interface abstractions to enhance usability and functionality.
 
+
+![image](https://github.com/Aditya-y9/DBMS-Travel-Management-System/assets/122613756/b88bc309-cc93-465c-b352-71f53e1163e8)
+
+![image](https://github.com/Aditya-y9/DBMS-Travel-Management-System/assets/122613756/de506652-4c05-40e4-8640-db5754984940)
+
+![image](https://github.com/Aditya-y9/DBMS-Travel-Management-System/assets/122613756/57d57a31-8e0d-42e6-a1a1-6cd7f7935c35)
+
+![image](https://github.com/Aditya-y9/DBMS-Travel-Management-System/assets/122613756/9fbf76fa-cd93-47f3-987e-5b28223c030a)
+
+![image](https://github.com/Aditya-y9/DBMS-Travel-Management-System/assets/122613756/dbdac464-5480-45ac-bb0e-7d7615a20981)
+
+![image](https://github.com/Aditya-y9/DBMS-Travel-Management-System/assets/122613756/c0f335b3-8634-481b-8efa-6076d6efd056)
+
+![image](https://github.com/Aditya-y9/DBMS-Travel-Management-System/assets/122613756/ef43716e-e8ee-43ca-af88-6dc905f1d538)
+
+![image](https://github.com/Aditya-y9/DBMS-Travel-Management-System/assets/122613756/3983f6e5-6245-4ed4-8be5-42bf47fdd81b)
+
+![image](https://github.com/Aditya-y9/DBMS-Travel-Management-System/assets/122613756/10fb4f48-c1f0-431c-b1b2-ccf089398af5)
+
+![image](https://github.com/Aditya-y9/DBMS-Travel-Management-System/assets/122613756/e4a2b668-aa56-4e69-83b5-07945e2f22b2)
+
+![image](https://github.com/Aditya-y9/DBMS-Travel-Management-System/assets/122613756/bb673d05-2e31-4736-9a39-0375cbf3cf33)
+
+![image](https://github.com/Aditya-y9/DBMS-Travel-Management-System/assets/122613756/b98a5a40-d7c4-429a-a646-954b784d70e6)
+
+![image](https://github.com/Aditya-y9/DBMS-Travel-Management-System/assets/122613756/45a8298b-64fc-4220-b9c9-1e2101297f48)
+
+
+
 ## Description
 This project is a simple travel management system that allows users to book itineraries and manage their bookings. The system is built using PHP and MariaDB.
 This project is a part of the course "Database Management Systems" at the Veermata Jijabai Technological Institute (VJTI), Mumbai.
